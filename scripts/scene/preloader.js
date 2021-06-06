@@ -172,6 +172,9 @@ KGames.Preloader.prototype = {
         let width = this.game.config.width;
         let height = this.game.config.height;
 
+        this.fpsmeter_lbl = this.add.text(120, 120, "00", { font: '60px Arial' });
+        this.fpsmeter_lbl.setColor("#ff0000");
+
         this.progressbar_shp = this.add.rectangle(0, 0, (width * 0.3), (height * 0.05));
         this.progressbar_shp.setOrigin(0,0.5);
         this.progressbar_shp.x = width * 0.5 - this.progressbar_shp.displayWidth * 0.5;
@@ -222,20 +225,18 @@ KGames.Preloader.prototype = {
 
     //MOVE TOO GAME SCENE
     movetoscene:function(){
-        this.loadinglbl_txt.text = "Loading.. 100%";
-        this.scene.start('gridgame');
+        //this.loadinglbl_txt.text = "Loading.. 100%";
+        //this.scene.start('gridgame');
     },
 
     //Preload function
     preload: function(){
-        /*
         this.declarevariable();
         this.createui();
         this.preloadgamejs();
         this.preloadlistener();
         this.preloadcommon();
         this.preloadgame();
-        */
     },
 
     //init function
@@ -245,8 +246,7 @@ KGames.Preloader.prototype = {
 
     //create function
     create: function(){
-        this.fpsmeter_lbl = this.add.text(120, 120, "00", { font: '60px Arial' });
-        this.fpsmeter_lbl.setColor("#ff0000");
+        this.preloadgameassets();
     },
 
     //update function
