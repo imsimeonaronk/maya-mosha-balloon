@@ -1,0 +1,272 @@
+{
+	"textures": [
+		{
+			"image": "summary.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 1447,
+				"h": 805
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "mosha_fainting.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 499,
+						"h": 616
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 499,
+						"h": 616
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 499,
+						"h": 616
+					}
+				},
+				{
+					"filename": "star_white.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 135,
+						"h": 132
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 1,
+						"w": 129,
+						"h": 128
+					},
+					"frame": {
+						"x": 1,
+						"y": 619,
+						"w": 129,
+						"h": 128
+					}
+				},
+				{
+					"filename": "tryagain.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 345,
+						"h": 75
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 17,
+						"w": 338,
+						"h": 55
+					},
+					"frame": {
+						"x": 1,
+						"y": 749,
+						"w": 338,
+						"h": 55
+					}
+				},
+				{
+					"filename": "star_golden.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 129,
+						"h": 126
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 1,
+						"w": 123,
+						"h": 122
+					},
+					"frame": {
+						"x": 132,
+						"y": 619,
+						"w": 123,
+						"h": 122
+					}
+				},
+				{
+					"filename": "congratulations.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 642,
+						"h": 99
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 2,
+						"w": 633,
+						"h": 85
+					},
+					"frame": {
+						"x": 257,
+						"y": 619,
+						"w": 633,
+						"h": 85
+					}
+				},
+				{
+					"filename": "ohuh.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 289,
+						"h": 99
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 2,
+						"w": 280,
+						"h": 85
+					},
+					"frame": {
+						"x": 341,
+						"y": 706,
+						"w": 280,
+						"h": 85
+					}
+				},
+				{
+					"filename": "notnow.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 285,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 5,
+						"w": 285,
+						"h": 82
+					},
+					"frame": {
+						"x": 623,
+						"y": 706,
+						"w": 285,
+						"h": 82
+					}
+				},
+				{
+					"filename": "mosha_happy.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 538,
+						"h": 591
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 0,
+						"w": 536,
+						"h": 591
+					},
+					"frame": {
+						"x": 910,
+						"y": 1,
+						"w": 536,
+						"h": 591
+					}
+				},
+				{
+					"filename": "mosha_standing.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 402,
+						"h": 560
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 402,
+						"h": 560
+					},
+					"frame": {
+						"x": 502,
+						"y": 1,
+						"w": 402,
+						"h": 560
+					}
+				},
+				{
+					"filename": "yes.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 285,
+						"h": 92
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 5,
+						"w": 285,
+						"h": 82
+					},
+					"frame": {
+						"x": 892,
+						"y": 594,
+						"w": 285,
+						"h": 82
+					}
+				},
+				{
+					"filename": "woohoo.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 338,
+						"h": 81
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 0,
+						"w": 334,
+						"h": 72
+					},
+					"frame": {
+						"x": 910,
+						"y": 678,
+						"w": 334,
+						"h": 72
+					}
+				},
+				{
+					"filename": "challenge.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 438,
+						"h": 66
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 13,
+						"w": 423,
+						"h": 51
+					},
+					"frame": {
+						"x": 910,
+						"y": 752,
+						"w": 423,
+						"h": 51
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:8e0fa9d0cd1658624f0c9b4da5cae3b4:262d501e1de02e8731401de03fe6a94d:31364812e37ce51c3af3b63b6403b13b$"
+	}
+}

@@ -1,0 +1,326 @@
+{
+    "CONFIG":{
+
+        "ID": "02",
+
+        "NAME": "DIWALI GAME",
+
+        "VERSION": "1.0",
+
+        "BG": {
+            "ID": "01",
+            "PATH": "assets/images/diwali_background.png"
+        },
+
+        "PREIMG": {
+            "ID": "PREIMG",
+            "PATH": "assets/images/diwali_preimage.png",
+            "POS": {
+                "X": 0.422,
+                "Y": 0.5
+            }
+        },
+
+        "MAINIMG": {
+            "ID": "MAINIMG",
+            "PATH": "assets/images/diwali_mainimage.png",
+            "POS": {
+                "X": 0.422,
+                "Y": 0.5
+            }
+        },
+
+        "GRID": {
+            "ID": "GRID",
+            "ROW": 5,
+            "COLUMN": 7,
+            "VISIBLE": false,
+            "POS":{
+                "X": 0.435,
+                "Y": 0.5
+            },
+            "LABEL": true
+        },
+
+        "TICKER_FRAME": {
+            "WIDTH": 0.13,
+            "HEIGHT": 1,
+            "POS":{
+                "X": 0,
+                "Y": 0
+            },
+            "ALPHA": 0.3
+        },
+
+        "TICKER_BTN": {
+            "UP": {
+                "ID": "TICKER-UP",
+                "PATH": "assets/images/btn/tickerup.png",
+                "POS": {
+                    "X": 0.935,
+                    "Y": 0.22
+                },
+                "VISIBLE": false
+            },
+            "DOWN": {
+                "ID": "TICKER-DOWN",
+                "PATH": "assets/images/btn/tickerdown.png",
+                "POS": {
+                    "X": 0.935,
+                    "Y": 0.92
+                },
+                "VISIBLE": false
+            }
+        },
+
+        "TICKER_IMG": {
+            "SIZE": 0.0008,
+            "SPACE": 0.03,
+            "POS": {
+                "X": 0.935,
+                "Y": 0.54
+            },
+            "SLIDE": 0.2,
+            "MASKY": 0.385,
+            "HOLD": 500,
+            "MAX_VISIBLE": 1,
+            "DRAG_SCALE": true,
+            "SHUFFLE": true
+        },
+
+        "DROP_AREA": {
+            "SHOW": false,
+            "SHOW_ON_DRAG": false,
+            "SHOW_ON_DROP": false,
+            "SHOW_ON_PREPLACED": false,
+            "SIZE": 0.003,
+            "ID": "DROP_AREA",
+            "PATH": "assets/images/glow.png"
+        },
+
+        "SOUNDS":{
+            "INTRO": { "ID": "INTRO", "PATH": "assets/sounds/diwali/DiwaliVOIntro.m4a", "FORCE_PLAY": true, "END_DELAY": 1000, "HIDE_TICKER": true, "VOLUME": 0.8 },
+            "BGMUSIC": { "ID": "BG-MUSIC", "PATH": "assets/sounds/diwali/DiwaliBackgroundmusic.mp3", "LOOP": true, "VOLUME": 0.4 },
+            "WRONG": { "ID": "WRONG", "PATH": "assets/sounds/common/NegativeSound.mp3" },
+            "RIGHT": { "ID": "RIGHT", "PATH": "assets/sounds/common/PositiveSound.mp3" },
+            "CORRECT1": { "ID": "VOExcellent", "PATH": "assets/sounds/common/VOExcellent.m4a" },
+            "CORRECT2": { "ID": "VOGoodJob", "PATH": "assets/sounds/common/VOGoodJob.m4a" },
+            "CORRECT3": { "ID": "VOWowYouAreAPro", "PATH": "assets/sounds/common/VOWowYouAreAPro.m4a" },
+            "INCORRECT1": { "ID": "QT_NotReally", "PATH": "assets/sounds/common/QT_NotReally.m4a" }
+        },
+
+        "ENDVIEW":{ 
+            "DELAY": 1000
+        },
+
+        "SCORE":{
+            "FLAG": 1,
+            "POINTS": 1
+        },
+
+        "CHALLENGE":{
+            "FLAG": 0
+        },
+
+        "CELEBRATION":{
+            "VISIBLE": true
+        }
+
+    },
+
+    "DATA": {
+
+        "TASK1":{
+            
+            "ENDIMG":{
+                "ID": "END2",
+                "PATH": "assets/images/diwali_endimage.png",
+                "POS": {
+                    "X": 0.42,
+                    "Y": 0.5
+                },
+                "VISIBLE": true,
+                "LAYER": "bottom"
+            },
+
+            "CNT":{
+                "CNT1":{
+                    "ID": "SDAnar",
+                    "IMG": "assets/images/ticker/diwali/SDAnar.png",
+                    "GRID_BOUND": [ [30] ],
+                    "GRID_PLACEMENT": [ 30 ],
+                    "ORIGIN": [ [0.2,0.45] ],
+                    "GRID_TIME": 0
+                },
+                "CNT2":{
+                    "ID": "TNAnar",
+                    "IMG": "assets/images/ticker/diwali/TNAnar.png",
+                    "GRID_BOUND": [ [30] ],
+                    "GRID_PLACEMENT": [ 30 ],
+                    "ORIGIN": [ [0.2,0.45] ],
+                    "GRID_SND": "assets/sounds/diwali/DiwaliVOAnaar.m4a",
+                    "GRID_TIME": 1
+                },
+                "CNT3":{
+                    "ID": "SDJojoSparkels",
+                    "IMG": "assets/images/ticker/diwali/SDJojoSparkels.png",
+                    "GRID_BOUND": [ [15,16,22,23,29,30] ],
+                    "GRID_PLACEMENT": [ 29 ],
+                    "ORIGIN": [ [0.2,0.8] ],
+                    "GRID_TIME": 0
+                },
+                "CNT4":{
+                    "ID": "TNJojoSparkels",
+                    "IMG": "assets/images/ticker/diwali/TNJojoSparkels.png",
+                    "GRID_BOUND": [ [15,16,22,23,29,30] ],
+                    "GRID_PLACEMENT": [ 29 ],
+                    "ORIGIN": [ [0.2,0.8] ],
+                    "GRID_SND": "assets/sounds/diwali/DiwaliVOPhulghadi.m4a",
+                    "GRID_TIME": 1
+                },
+                "CNT5":{
+                    "ID": "SDtoran",
+                    "IMG": "assets/images/ticker/diwali/SDtoran.png",
+                    "GRID_BOUND": [ [17,18,19,24,25,26] ],
+                    "GRID_PLACEMENT": [ 25 ],
+                    "ORIGIN": [ [0.7,1.05] ],
+                    "GRID_TIME": 0
+                },
+                "CNT6":{
+                    "ID": "TNtoran",
+                    "IMG": "assets/images/ticker/diwali/TNtoran.png",
+                    "GRID_BOUND": [ [17,18,19,24,25,26] ],
+                    "GRID_PLACEMENT": [ 25 ],
+                    "ORIGIN": [ [0.7,1.05] ],
+                    "GRID_TIME": 1
+                },
+                "CNT7":{
+                    "ID": "SDSweetPLateaandMaya",
+                    "IMG": "assets/images/ticker/diwali/SDSweetPLateaandMaya.png",
+                    "GRID_BOUND": [ [21,28,35] ],
+                    "GRID_PLACEMENT": [ 28 ],
+                    "ORIGIN": [ [0.6,0.67] ],
+                    "GRID_TIME": 0
+                },
+                "CNT8":{
+                    "ID": "TNSweetPLateaandMaya",
+                    "IMG": "assets/images/ticker/diwali/TNSweetPLateaandMaya.png",
+                    "GRID_BOUND": [ [21,28,35] ],
+                    "GRID_PLACEMENT": [ 28 ],
+                    "ORIGIN": [ [0.6,0.67] ],
+                    "GRID_SND": "assets/sounds/diwali/DiwaliVOMaya.m4a",
+                    "GRID_TIME": 1
+                },
+                "CNT9":{
+                    "ID": "SDDiya",
+                    "IMG": "assets/images/ticker/diwali/SDDiya.png",
+                    "GRID_BOUND": [ [31,32,33] ],
+                    "GRID_PLACEMENT": [ 32 ],
+                    "ORIGIN": [ [0.7,0.4] ],
+                    "GRID_TIME": 0
+                },
+                "CNT10":{
+                    "ID": "TNDiya",
+                    "IMG": "assets/images/ticker/diwali/TNDiya.png",
+                    "GRID_BOUND": [ [31,32,33] ],
+                    "GRID_PLACEMENT": [ 32 ],
+                    "ORIGIN": [ [0.7,0.4] ],
+                    "GRID_SND": "assets/sounds/diwali/DiwaliVODiya.m4a",
+                    "GRID_TIME": 1
+                },
+                "CNT11":{
+                    "ID": "SDJosh",
+                    "IMG": "assets/images/ticker/diwali/SDJosh.png",
+                    "GRID_BOUND": [ [26,27,33,34] ],
+                    "GRID_PLACEMENT": [ 26 ],
+                    "ORIGIN": [ [0.25,0.35] ],
+                    "GRID_TIME": 0
+                },
+                "CNT12":{
+                    "ID": "TNJosh",
+                    "IMG": "assets/images/ticker/diwali/TNJosh.png",
+                    "GRID_BOUND": [ [26,27,33,34] ],
+                    "GRID_PLACEMENT": [ 26 ],
+                    "ORIGIN": [ [0.25,0.35] ],
+                    "GRID_SND": "assets/sounds/diwali/DiwaliVOJojo.m4a",
+                    "GRID_TIME": 1
+                },
+                "CNT13":{
+                    "ID": "SDLamp",
+                    "IMG": "assets/images/ticker/diwali/SDLamp.png",
+                    "GRID_BOUND": [ [12,5] ],
+                    "GRID_PLACEMENT": [ 12 ],
+                    "ORIGIN": [ [0.88,0.58] ],
+                    "GRID_TIME": 0
+                },
+                "CNT14":{
+                    "ID": "TNLamp",
+                    "IMG": "assets/images/ticker/diwali/TNLamp.png",
+                    "GRID_BOUND": [ [12,5] ],
+                    "GRID_PLACEMENT": [ 12 ],
+                    "ORIGIN": [ [0.88,0.58] ],
+                    "GRID_TIME": 1
+                },
+                "CNT15":{
+                    "ID": "SDStar",
+                    "IMG": "assets/images/ticker/diwali/SDStar.png",
+                    "GRID_BOUND": [ [4] ],
+                    "GRID_PLACEMENT": [ 4 ],
+                    "ORIGIN": [ [0.5,0.5] ],
+                    "GRID_TIME": 0
+                },
+                "CNT16":{
+                    "ID": "TNStar",
+                    "IMG": "assets/images/ticker/diwali/TNStar.png",
+                    "GRID_BOUND": [ [4] ],
+                    "GRID_PLACEMENT": [ 4 ],
+                    "ORIGIN": [ [0.5,0.5] ],
+                    "GRID_TIME": 1
+                },
+                "CNT17":{
+                    "ID": "SDChakali",
+                    "IMG": "assets/images/ticker/diwali/SDChakali.png",
+                    "GRID_BOUND": [ [35] ],
+                    "GRID_PLACEMENT": [ 35 ],
+                    "ORIGIN": [ [0.4,0.1] ],
+                    "GRID_TIME": 0
+                },
+                "CNT18":{
+                    "ID": "TNChakali",
+                    "IMG": "assets/images/ticker/diwali/TNChakali.png",
+                    "GRID_BOUND": [ [35] ],
+                    "GRID_PLACEMENT": [ 35 ],
+                    "ORIGIN": [ [0.4,0.1] ],
+                    "GRID_SND": "assets/sounds/diwali/DiwaliVOChakri.m4a",
+                    "GRID_TIME": 1
+                },
+                "CNT19":{
+                    "ID": "SDRocket",
+                    "IMG": "assets/images/ticker/diwali/SDRocket.png",
+                    "GRID_BOUND": [ [34] ],
+                    "GRID_PLACEMENT": [ 34 ],
+                    "ORIGIN": [ [-0.4,0.7] ],
+                    "GRID_TIME": 0
+                },
+                "CNT20":{
+                    "ID": "TNRocket",
+                    "IMG": "assets/images/ticker/diwali/TNRocket.png",
+                    "GRID_BOUND": [ [34] ],
+                    "GRID_PLACEMENT": [ 34 ],
+                    "ORIGIN": [ [-0.4,0.7] ],
+                    "GRID_SND": "assets/sounds/diwali/DiwaliVORocket.m4a",
+                    "GRID_TIME": 1,
+                    "GRID_GIF": {
+                        "ID": "ROCKETGIF",
+                        "PATH": "assets/sprite/rocket.png",
+                        "JSON": "assets/sprite/rocket.json",
+                        "FRAME_RATE": 30,
+                        "ORIGIN": [ [0.507, 0.928] ]
+                    },
+                    "SHADOW": "SDRocket"
+                }
+            }
+        }
+        
+    }
+}

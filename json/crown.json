@@ -1,0 +1,229 @@
+{
+    "CONFIG":{
+
+        "ID": "03",
+
+        "NAME": "CROWN GAME",
+
+        "VERSION": "1.0",
+
+        "BG": {
+            "ID": "01",
+            "PATH": "assets/images/crown_background.png"
+        },
+
+        "PREIMG": {
+            "ID": "PREIMG",
+            "PATH": "assets/images/crown_preimage.png",
+            "POS": {
+                "X": 0.422,
+                "Y": 0.5
+            }
+        },
+
+        "GRID": {
+            "ID": "GRID",
+            "ROW": 5,
+            "COLUMN": 7,
+            "VISIBLE": true,
+            "POS":{
+                "X": 0.435,
+                "Y": 0.5
+            },
+            "LABEL": true
+        },
+
+        "TICKER_FRAME": {
+            "WIDTH": 0.13,
+            "HEIGHT": 1,
+            "POS":{
+                "X": 0,
+                "Y": 0
+            },
+            "ALPHA": 0.3
+        },
+
+        "TICKER_BTN": {
+            "UP": {
+                "ID": "TICKER-UP",
+                "PATH": "assets/images/btn/tickerup.png",
+                "POS": {
+                    "X": 0.935,
+                    "Y": 0.22
+                },
+                "VISIBLE": false
+            },
+            "DOWN": {
+                "ID": "TICKER-DOWN",
+                "PATH": "assets/images/btn/tickerdown.png",
+                "POS": {
+                    "X": 0.935,
+                    "Y": 0.92
+                },
+                "VISIBLE": false
+            }
+        },
+
+        "TICKER_IMG": {
+            "SIZE": 0.001,
+            "SPACE": 0.03, 
+            "POS": {
+                "X": 0.935,
+                "Y": 0.54
+            },
+            "SLIDE": 0.2, 
+            "MASKY": 0.385, 
+            "HOLD": 500,
+            "MAX_VISIBLE": 3,
+            "DRAG_SCALE": true,
+            "SHUFFLE": true,
+            "SOUND_DELAY": 2,
+            "AUTOPLACE_DELAY": 0,
+            "CELEBRATION_SND": true,
+            "CELEBRATION_DELAY": 2
+        },
+
+        "DROP_AREA": {
+            "SHOW": false,
+            "SHOW_ON_DRAG": false,
+            "SHOW_ON_DROP": true,
+            "SHOW_ON_PREPLACED": false,
+            "ID": "DROP_AREA",
+            "PATH": "assets/images/glow_crown.png"
+        },
+
+        "SOUNDS":{
+            "INTRO": { "ID": "INTRO", "PATH": "assets/sounds/crown/VOIntroCrownGame.m4a", "FORCE_PLAY": true, "END_DELAY": 1000, "HIDE_TICKER": false, "VOLUME": 0.8 },
+            "CHALLENGE_INTRO": { "ID": "CHALLENGE INTRO", "PATH": "assets/sounds/crown/VOChallengeRound.m4a", "FORCE_PLAY": true, "END_DELAY": 1000, "HIDE_TICKER": false, "VOLUME": 0.8 },
+            "WRONG": { "ID": "WRONG", "PATH": "assets/sounds/common/NegativeSound.mp3" },
+            "RIGHT": { "ID": "RIGHT", "PATH": "assets/sounds/common/PositiveSound.mp3" },
+            "CORRECT1": { "ID": "VOExcellent", "PATH": "assets/sounds/common/VOExcellent.m4a" },
+            "CORRECT2": { "ID": "VOGoodJob", "PATH": "assets/sounds/common/VOGoodJob.m4a" },
+            "CORRECT3": { "ID": "VOWowYouAreAPro", "PATH": "assets/sounds/common/VOWowYouAreAPro.m4a" },
+            "INCORRECT1": { "ID": "QT_NotReally", "PATH": "assets/sounds/common/QT_NotReally.m4a" }
+        },
+
+        "ENDVIEW":{
+            "DELAY": 1000
+        },
+
+        "SCORE":{
+            "FLAG": 0,
+            "POINTS": 10
+        },
+
+        "CHALLENGE":{
+            "FLAG": 1,
+            "ROUNDS": {
+                "ROUND1": 60,
+                "ROUND2": 60
+            }
+        },
+
+        "GTIMER":{
+            "FLAG": true,
+            "TIME": 60
+        },
+
+        "CELEBRATION":{
+            "VISIBLE": true
+        }
+
+    },
+
+    "DATA": {
+
+        "TASK1":{
+            "ENDIMG":{
+                "ID": "END3",
+                "PATH": "assets/images/crown_endimage.png",
+                "POS": {
+                    "X": 0.42,
+                    "Y": 0.5
+                },
+                "VISIBLE": true,
+                "LAYER": "top",
+                "HIDE_TICKER": true
+            },
+
+            "CNT":{
+                "CNT1":{
+                    "ID": "TNHimalayas",
+                    "IMG": "assets/images/ticker/crown/TNHimalayas.png",
+                    "GRID_BOUND": [ [4,5,11,12] ],
+                    "GRID_PLACEMENT": [ 8 ],
+                    "GRID_TIME": 0
+                },
+                "CNT2":{
+                    "ID": "TNGGHimGreenValleys",
+                    "IMG": "assets/images/ticker/crown/TNGGHimGreenValleys.png",
+                    "GRID_BOUND": [ [23,24,30,31], [25,26,32,33], [27,28,34,35] ],
+                    "GRID_PLACEMENT": [ 24, 26, 28 ],
+                    "ORIGIN": [ [0.65,0.35], [0.7,0.35], [0.72,0.35] ],
+                    "ORIGIN_GLOW": [ [0.62,0.40], [0.64,0.40], [0.66,0.40] ],
+                    "GRID_SND": "assets/sounds/crown/VOCGTHimalayaT1.m4a",
+                    "GRID_TIME": 1,
+                    "AUTO_PLACE": 2,
+                    "GRID_TICKER_SND": "assets/sounds/crown/VOCGTHimalayaT1.m4a",
+                    "GRID_CHALLENGE_SND": "assets/sounds/crown/VOCGTHimalayaT1.m4a"
+                },
+                "CNT3":{
+                    "ID": "TNGGHimRivers",
+                    "IMG": "assets/images/ticker/crown/TNGGHimRivers.png",
+                    "GRID_BOUND": [ [22,23,29,30] ],
+                    "GRID_PLACEMENT": [ 29 ],
+                    "ORIGIN": [ [0.35,0.80] ],
+                    "ORIGIN_GLOW": [ [0.39,0.75] ],
+                    "GRID_SND": "assets/sounds/crown/VOCGTHimalayaL1.m4a",
+                    "GRID_TIME": 2,
+                    "GRID_TICKER_HIDE_TIME": 1,
+                    "AUTO_PLACE": 2,
+                    "GRID_TICKER_SND": "assets/sounds/crown/VOCGTHimalayaL1.m4a",
+                    "GRID_CHALLENGE_SND": "assets/sounds/crown/VOCGTHimalayaL1.m4a"
+                },
+                "CNT4":{
+                    "ID": "TNGGHimSanskrit",
+                    "IMG": "assets/images/ticker/crown/TNGGHimSanskrit.png",
+                    "GRID_BOUND": [ [23,24,30,31], [25,26,32,33], [27,28,34,35] ],
+                    "GRID_PLACEMENT": [ 24, 26, 28 ],
+                    "ORIGIN": [ [0.65,0.35], [0.7,0.35], [0.72,0.35] ],
+                    "ORIGIN_GLOW": [ [0.62,0.40], [0.64,0.40], [0.66,0.40] ],
+                    "GRID_SND": "assets/sounds/crown/VOCGTHimalayaT3.m4a",
+                    "GRID_TIME": 1,
+                    "AUTO_PLACE": 2,
+                    "GRID_TICKER_SND": "assets/sounds/crown/VOCGTHimalayaT3.m4a",
+                    "GRID_CHALLENGE_SND": "assets/sounds/crown/VOCGTHimalayaT3.m4a"
+                },
+                "CNT5":{
+                    "ID": "TNGGHimTrekking",
+                    "IMG": "assets/images/ticker/crown/TNGGHimTrekking.png",
+                    "GRID_BOUND": [ [22,23,29,30] ],
+                    "GRID_PLACEMENT": [ 29 ],
+                    "ORIGIN": [ [0.35,0.80] ],
+                    "ORIGIN_GLOW": [ [0.39,0.75] ],
+                    "GRID_SND": "assets/sounds/crown/VOCGTHimalayaL2.m4a",
+                    "GRID_TIME": 2,
+                    "GRID_TICKER_HIDE_TIME": 1,
+                    "AUTO_PLACE": 2,
+                    "GRID_TICKER_SND": "assets/sounds/crown/VOCGTHimalayaL2.m4a",
+                    "GRID_CHALLENGE_SND": "assets/sounds/crown/VOCGTHimalayaL2.m4a"
+                },
+                "CNT6":{
+                    "ID": "TNGGHimMountEverest",
+                    "IMG": "assets/images/ticker/crown/TNGGHimMountEverest.png",
+                    "GRID_BOUND": [ [23,24,30,31], [25,26,32,33], [27,28,34,35] ],
+                    "GRID_PLACEMENT": [ 24, 26, 28 ],
+                    "ORIGIN": [ [0.65,0.35], [0.7,0.35], [0.72,0.35] ],
+                    "ORIGIN_GLOW": [ [0.62,0.40], [0.64,0.40], [0.66,0.40] ],
+                    "GRID_SND": "assets/sounds/crown/VOCGTHimalayaT2.m4a",
+                    "GRID_TIME": 1,
+                    "AUTO_PLACE": 2,
+                    "GRID_TICKER_SND": "assets/sounds/crown/VOCGTHimalayaT2.m4a",
+                    "GRID_CHALLENGE_SND": "assets/sounds/crown/VOCGTHimalayaT2.m4a"
+                }
+            }
+        }
+        
+    }
+
+}
