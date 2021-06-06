@@ -234,7 +234,7 @@ KGames.Preloader.prototype = {
         this.declarevariable();
         this.createui();
         this.preloadgamejs();
-        //this.preloadlistener();
+        this.preloadlistener();
         //this.preloadcommon();
         //this.preloadgame();
     },
