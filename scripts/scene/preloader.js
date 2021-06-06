@@ -182,6 +182,7 @@ KGames.Preloader.prototype = {
         this.progressbar_shp.setFillStyle(0x000000);
         this.progressbar_shp.scaleX = 0.01;
 
+        /*
         this.loadinglbl_txt = this.add.text(
             width * 0.5, 
             height * 0.5, 
@@ -194,6 +195,7 @@ KGames.Preloader.prototype = {
             }
         );
         this.loadinglbl_txt.setOrigin(0.5);
+        */
     },
 
     //PRE-LOAD LISTENER
@@ -203,7 +205,7 @@ KGames.Preloader.prototype = {
         this.load.on('progress', function (value) {
             thisclass.progress_val = Math.floor((value * 100) * 0.5) + thisclass.progresspercent_val;
             //Global.Log("PRELOAD: PROGRESS - "+thisclass.progress_val);
-            thisclass.loadinglbl_txt.text = "Loading.. "+thisclass.progress_val+"%";
+            //thisclass.loadinglbl_txt.text = "Loading.. "+thisclass.progress_val+"%";
             thisclass.progressbar_shp.scaleX = (thisclass.progress_val/100);
         });
                     
