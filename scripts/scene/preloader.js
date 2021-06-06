@@ -181,8 +181,7 @@ KGames.Preloader.prototype = {
         this.progressbar_shp.y = height * 0.85;
         this.progressbar_shp.setFillStyle(0x000000);
         this.progressbar_shp.scaleX = 0.01;
-
-        /*
+        
         this.loadinglbl_txt = this.add.text(
             width * 0.5, 
             height * 0.5, 
@@ -195,7 +194,6 @@ KGames.Preloader.prototype = {
             }
         );
         this.loadinglbl_txt.setOrigin(0.5);
-        */
     },
 
     //PRE-LOAD LISTENER
@@ -235,10 +233,10 @@ KGames.Preloader.prototype = {
     preload: function(){
         this.declarevariable();
         this.createui();
-        this.preloadgamejs();
-        this.preloadlistener();
-        this.preloadcommon();
-        this.preloadgame();
+        //this.preloadgamejs();
+        //this.preloadlistener();
+        //this.preloadcommon();
+        //this.preloadgame();
     },
 
     //init function
