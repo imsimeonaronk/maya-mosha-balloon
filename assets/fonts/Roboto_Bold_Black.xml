@@ -1,0 +1,21 @@
+<?xml version='1.0'?>
+   <font>
+       <info aa='1' size='50' smooth='1' stretchH='100' bold='0' padding='0,0,0,0' spacing='0,0' charset='' italic='0' unicode='0' face='Roboto'/>
+       <common scaleW='128' packed='0' pages='1' lineHeight='61' scaleH='128' base='49'/>
+       <pages>
+            <page id='0' file='Roboto_Bold_Black.png'/>
+       </pages>
+        <chars count='11'>
+            <char xadvance='13' x='122' chnl='0' yoffset='47' y='2' xoffset='0' id='32' page='0' height='0' width='0'/>
+            <char xadvance='29' x='32' chnl='0' yoffset='9' y='44' xoffset='3' id='48' page='0' height='40' width='28'/>
+            <char xadvance='29' x='90' chnl='0' yoffset='11' y='44' xoffset='5' id='49' page='0' height='38' width='18'/>
+            <char xadvance='29' x='92' chnl='0' yoffset='9' y='2' xoffset='2' id='50' page='0' height='40' width='28'/>
+            <char xadvance='29' x='62' chnl='0' yoffset='9' y='2' xoffset='2' id='51' page='0' height='40' width='28'/>
+            <char xadvance='29' x='32' chnl='0' yoffset='11' y='86' xoffset='2' id='52' page='0' height='38' width='28'/>
+            <char xadvance='29' x='32' chnl='0' yoffset='9' y='2' xoffset='3' id='53' page='0' height='40' width='28'/>
+            <char xadvance='29' x='2' chnl='0' yoffset='9' y='44' xoffset='3' id='54' page='0' height='40' width='28'/>
+            <char xadvance='29' x='2' chnl='0' yoffset='11' y='86' xoffset='2' id='55' page='0' height='38' width='28'/>
+            <char xadvance='29' x='2' chnl='0' yoffset='9' y='2' xoffset='3' id='56' page='0' height='40' width='28'/>
+            <char xadvance='29' x='62' chnl='0' yoffset='9' y='44' xoffset='3' id='57' page='0' height='40' width='26'/>
+       </chars>
+   </font>

@@ -5,8 +5,8 @@ const APPCONFIG = {
         BTN: {
             ID:"MBUTTONS",
             ANIM_TIME: 0.1,
-            PATH: "assets/sprite/buttons.png",
-            JSON: "assets/sprite/buttons.json",
+            PATH: "assets/sprite/common/buttons.png",
+            JSON: "assets/sprite/common/buttons.json",
             POS: {
                 HOME:{
                     NAME:"home.png",
@@ -35,24 +35,24 @@ const APPCONFIG = {
             Y: 0.10,
         },
         FONT: {
-            ID: "ROBOTO-BOLD",
-            PATH: "assets/fonts/Roboto_Bold.png",
-            XML: "assets/fonts/Roboto_Bold.xml"
+            ID: "ROBOTO-BOLD-BLACK",
+            PATH: "assets/fonts/Roboto_Bold_Black.png",
+            XML: "assets/fonts/Roboto_Bold_Black.xml"
         },
     },
     //GAME SPARKLE
     SPARKLE: {
         ID: "SPARKLE",
-        PATH: "assets/sprite/sparkle.png",
-        JSON: "assets/sprite/sparkle.json",
+        PATH: "assets/sprite/common/sparkle.png",
+        JSON: "assets/sprite/common/sparkle.json",
         FRAME_RATE: 8, //ANIMATION SPEED
     },
     //CELEBRATION
     CELEBRATION: {
         ANIMATION:{
             ID: "CELEBRATION",
-            PATH: "assets/sprite/celebration.png",
-            JSON: "assets/sprite/celebration.json",
+            PATH: "assets/sprite/common/celebration.png",
+            JSON: "assets/sprite/common/celebration.json",
         },
         SOUNDS: {
             MAIN: { ID: "CELEBRATION", PATH: "assets/sounds/common/celebration.mp3", VOLUME: 0.6 }
@@ -65,8 +65,8 @@ const APPCONFIG = {
         NEGATIVE_HIDE_TIME: 5000,
         POSITIVE_HIDE_TIME: 8000,
         BG_ALPHA: 0.8,
-        PATH: "assets/sprite/summary.png",
-        JSON: "assets/sprite/summary.json",
+        PATH: "assets/sprite/common/summary.png",
+        JSON: "assets/sprite/common/summary.json",
         SOUNDS: {
             CORRECT1: { ID: 'CORRECT1', PATH: "assets/sounds/common/FGSummary.m4a" },
             WRONG1: { ID: 'WRONG1', PATH: "assets/sounds/common/VOTryAgain.m4a" }

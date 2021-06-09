@@ -22,6 +22,7 @@ KGames.Summary.prototype = {
         this.scorepercent_val = data.percent;
         this.scenehidetime_val = null;
         this.scoreflag_val = data.flag;
+        this.btnanimtime_val = 200;
 
         //Group
         this.frame_grp = this.add.container();
@@ -42,6 +43,13 @@ KGames.Summary.prototype = {
 
         //Timer
         this.scenehide_tmr = null;
+        this.btntrigger_tmr = null;
+        
+        if(APPCONFIG.MENU.BTN){
+            if(APPCONFIG.MENU.BTN.ANIM_TIME){
+                this.btnanimtime_val = APPCONFIG.MENU.BTN.ANIM_TIME * 1000;
+            }
+        }
     },
 
     //FUNCtiONS
@@ -106,6 +114,13 @@ KGames.Summary.prototype = {
             this.frame_grp = null;
             this.frame_grp = this.add.group();
         }
+    },
+
+    cleartween: function(tween){
+        if(tween){
+            tween.stop();
+        }
+        return null;
     },
 
     //Scale image
@@ -212,6 +227,36 @@ KGames.Summary.prototype = {
                 rotate: { start: 0 , end: 360 }
             });
             this.celebrate_anim.setVisible(false);
+        }
+    },
+
+    createbuttonanim: function(btn){
+        let thisclass = this;
+        if(btn){
+            btn.ondown = function(){
+                if(this.scaleX != (this.scl * 0.92)){
+                    this.tween1 = thisclass.cleartween(this.tween1);
+                    this.tween1 = thisclass.tweens.add({
+                        targets: this,
+                        scaleX: (this.scl * 0.92),
+                        scaleY: (this.scl * 0.92),
+                        duration: thisclass.btnanimtime_val,
+                        ease: 'Linear',
+                    });
+                }
+            }
+            btn.onup = function(){
+                if(this.scaleX != (this.scl * 1.0)){
+                    this.tween2 = thisclass.cleartween(this.tween2);
+                    this.tween2 = thisclass.tweens.add({
+                        targets: this,
+                        scaleX: (this.scl * 1.0),
+                        scaleY: (this.scl * 1.0),
+                        duration: thisclass.btnanimtime_val,
+                        ease: 'Linear',
+                    });
+                }
+            }
         }
     },
 
@@ -367,42 +412,83 @@ KGames.Summary.prototype = {
         this.frame_grp.add(challenge);
 
         let yesbtn = this.add.sprite(0, 0, (APPCONFIG.ID+"-"+APPCONFIG.SUMMARY.ID), "yes.png");
-        yesbtn.setScale((1 / yesbtn.width) * mousa.displayWidth * 0.8);
+        yesbtn.scl = (1 / yesbtn.width) * mousa.displayWidth * 0.8;
+        yesbtn.setScale(yesbtn.scl);
         yesbtn.setPosition(woohoo.x, woohoo.y + yesbtn.displayHeight * 2.7);
         yesbtn.isdown = false;
         yesbtn.setInteractive();
+        this.createbuttonanim(yesbtn);
         this.frame_grp.add(yesbtn);
 
         let notbtn = this.add.sprite(0, 0, (APPCONFIG.ID+"-"+APPCONFIG.SUMMARY.ID), "notnow.png");
-        notbtn.setScale((1 / notbtn.width) * mousa.displayWidth * 0.8);
+        notbtn.scl = (1 / notbtn.width) * mousa.displayWidth * 0.8;
+        notbtn.setScale(notbtn.scl);
         notbtn.setPosition(yesbtn.x, yesbtn.y + notbtn.displayHeight * 1.4);
         notbtn.isdown = false;
         notbtn.setInteractive();
+        this.createbuttonanim(notbtn);
         this.frame_grp.add(notbtn);
 
         // BTN Interactive
         yesbtn.on('pointerdown', function(pointer, localX, localY, event){
-            this.isdown = true;
+            if(this.btntrigger_tmr == null){
+                this.ondown();
+                this.isdown = true;
+            }
+        });
+
+        yesbtn.on('pointerout',function(pointer, px, py, event){
+            if(this.btntrigger_tmr == null){
+                this.onup();
+            }
         });
 
         yesbtn.on('pointerup', function(pointer, localX, localY, event){
-            if(this.isdown){
-                Global.Log('BTN: Yes. Go Ahead.');
-                this.isdown = false;
-                thisclass.challenge_bol = true;
-                thisclass.closethisscene();
+            if(this.btntrigger_tmr == null){
+                if(this.isdown){
+                    Global.Log('BTN: Yes. Go Ahead.');
+                    this.onup();
+                    this.isdown = false;
+                    this.btntrigger_tmr = thisclass.time.addEvent({
+                        delay: Math.floor(thisclass.btnanimtime_val * 1.25),
+                        callback: () =>{
+                            thisclass.challenge_bol = true;
+                            thisclass.closethisscene();
+                        },
+                        loop: false
+                    });
+                }
             }
         });
 
         notbtn.on('pointerdown', function(pointer, localX, localY, event){
-            this.isdown = true;
+            if(this.btntrigger_tmr == null){
+                this.ondown();
+                this.isdown = true;
+            }
+        });
+
+        notbtn.on('pointerout',function(pointer, px, py, event){
+            if(this.btntrigger_tmr == null){
+                this.isdown = false;
+                this.onup();
+            }
         });
 
         notbtn.on('pointerup', function(pointer, localX, localY, event){
-            if(this.isdown){
-                Global.Log('BTN: Not Now');
-                this.isdown = false;
-                thisclass.closethisscene();
+            if(this.btntrigger_tmr == null){
+                if(this.isdown){
+                    Global.Log('BTN: Not Now');
+                    this.onup();
+                    this.isdown = false;
+                    this.btntrigger_tmr = thisclass.time.addEvent({
+                        delay: Math.floor(thisclass.btnanimtime_val * 1.25),
+                        callback: () =>{
+                            thisclass.closethisscene();
+                        },
+                        loop: false
+                    });
+                }
             }
         });
     },
@@ -430,7 +516,7 @@ KGames.Summary.prototype = {
                 this.negativeframe();
                 this.playwrongsnd();
             }else{
-                this.positiveframe();
+                this.nextframe();
                 this.createcelebration();
                 this.playcorrectsnd();
                 this.showcelebration(this.showceleb_bol);

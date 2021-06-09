@@ -32,7 +32,6 @@ let calculatetime = function(){
     GTimer.initialtime --;
     if(GTimer.initialtime <= 0 ){
         GTimer.initialtime = 0;
-        Global.Log("Time End!");
         if(GTimer.phase != "stop"){
             GTimer.Stop();
             GTimer.scene.challengetimeend();
