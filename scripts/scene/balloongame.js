@@ -595,7 +595,6 @@ KGames.BalloonGame.prototype = {
 
     updatescorevalue: function(){
         if(this.topscore_lbl){
-            console.log(this.scoreearned_val)
             this.topscore_lbl.text = "SCORE: "+ this.scoreearned_val;
         }
     },
@@ -714,7 +713,8 @@ KGames.BalloonGame.prototype = {
     },
 
     createscorelbl: function(){
-        this.topscore_lbl = this.add.bitmapText(0, 0, this.CONFIG.ID+"-"+this.CONFIG.TOP_SCORE_LBL.FONT.ID, "SCORE: 0", 60);
+        let fontsize = Math.floor(this.home_btn.displayHeight * 0.7);
+        this.topscore_lbl = this.add.bitmapText(0, 0, this.CONFIG.ID+"-"+this.CONFIG.TOP_SCORE_LBL.FONT.ID, "SCORE: 0", fontsize);
         this.topscore_lbl.setPosition(this.centerx_val, this.home_btn.y);
         this.topscore_lbl.setOrigin(0.5);
     },
