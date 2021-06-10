@@ -20,6 +20,15 @@ KGames.Boot.prototype = {
         }
     },
 
+    // SCALE IMAGE
+    scaleimage: function(obj){
+        if (this.swidth_val / this.sheight_val > 1920 / 1080) {
+            obj.setScale((1 / obj.width) * this.game.config.width * 0.25);
+        } else {
+            obj.setScale((1 / obj.width) * this.game.config.width * 0.20);
+        }
+    },
+
     //CREATE UI
     createui: function(){
         let width = this.game.config.width;
@@ -27,11 +36,17 @@ KGames.Boot.prototype = {
         let pw = Math.floor(width * 0.3);
         let ph = Math.floor(height * 0.01);
 
+        let dummyrect = this.add.rectangle(0,0,652,742);
+        this.scaleimage(dummyrect);
+        dummyrect.visible = false;
+        dummyrect.x = this.game.config.width * 0.5;
+        dummyrect.y = this.game.config.height * 0.5;
+
         this.progressbar_shp = this.add.graphics(0, 0);
         this.progressbar_shp.fillStyle(0x000000, 1);
-        this.progressbar_shp.fillRoundedRect(0, 0, pw, ph, 10);
+        this.progressbar_shp.fillRoundedRect(0, 0, pw, ph, Math.floor(ph*0.5));
         this.progressbar_shp.x = width * 0.5 - pw * 0.5;
-        this.progressbar_shp.y = height * 0.90;
+        this.progressbar_shp.y = dummyrect.y + dummyrect.displayHeight * 0.5;
         this.progressbar_shp.scaleX = 0.01;
     },
 

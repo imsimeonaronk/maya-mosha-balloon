@@ -173,9 +173,9 @@ KGames.Preloader.prototype = {
 
         this.progressbar_shp = this.add.graphics(0, 0);
         this.progressbar_shp.fillStyle(0x000000, 1);
-        this.progressbar_shp.fillRoundedRect(0, 0, pw, ph, 10);
+        this.progressbar_shp.fillRoundedRect(0, 0, pw, ph, Math.floor(ph*0.5));
         this.progressbar_shp.x = width * 0.5 - pw * 0.5;
-        this.progressbar_shp.y = height * 0.90;
+        this.progressbar_shp.y = this.preload_spr.y + this.preload_spr.displayHeight * 0.5;
         this.progressbar_shp.scaleX = 0.01;
     },
 
