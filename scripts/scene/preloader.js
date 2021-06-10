@@ -11,6 +11,31 @@ KGames.Preloader.prototype = {
         this.progresspercent_val = 0;
     },
 
+    //CREATE ANIM FUN
+    createanim: function(id,name,texture,frate,repeat){
+        if(texture && name && id){
+            var frameNames = this.anims.generateFrameNames(id, {
+                start: 1, end: (texture.frameTotal-1), zeroPad: 4,
+                prefix: '', suffix: '.png'
+            });
+            this.anims.create({
+                key: name,
+                frames: frameNames,
+                frameRate: frate,
+                repeat: repeat
+            })
+        }
+    },
+
+    // SCALE IMAGE
+    scaleimage: function(obj){
+        if (this.swidth_val / this.sheight_val > 1920 / 1080) {
+            obj.setScale((1 / obj.width) * this.game.config.width * 0.25);
+        } else {
+            obj.setScale((1 / obj.width) * this.game.config.width * 0.20);
+        }
+    },
+
     //COMMON CONFIG
     preloadcommon: function(){
         if(typeof(APPCONFIG) != "undefined"){
@@ -60,8 +85,8 @@ KGames.Preloader.prototype = {
 
     //GAME PAGE
     preloadgame: function(){
-        let CONFIG = gamejson.CONFIG;
-        let DATA = gamejson.DATA;
+        let CONFIG = Global.GameJson.CONFIG;
+        let DATA = Global.GameJson.DATA;
         if(typeof(CONFIG) != "undefined"){
             //BG
             if(CONFIG.BG){
@@ -94,7 +119,7 @@ KGames.Preloader.prototype = {
     },
 
     preloadgamejs: function(){
-        let CONFIG = gamejson.CONFIG;
+        let CONFIG = Global.GameJson.CONFIG;
         if(typeof(CONFIG) != "undefined"){
             //LOAD LANGUAGE GAME AUDIO & IMAGE
             this.applang = (CONFIG.LANG || "").toLowerCase();
@@ -109,7 +134,7 @@ KGames.Preloader.prototype = {
 
     preloadgameassets: function(){
         let thisclass = this;
-        let CONFIG = gamejson.CONFIG;
+        let CONFIG = Global.GameJson.CONFIG;
         if(TDict && IDict){
             for(const key in TDict){
                 if(TDict[key].AUDIO && TDict[key].AUDIO != ""){
@@ -134,26 +159,24 @@ KGames.Preloader.prototype = {
     createui: function(){
         let width = this.game.config.width;
         let height = this.game.config.height;
+        let pw = Math.floor(width * 0.3);
+        let ph = Math.floor(height * 0.01);
 
-        this.progressbar_shp = this.add.rectangle(0, 0, (width * 0.3), (height * 0.05));
-        this.progressbar_shp.setOrigin(0,0.5);
-        this.progressbar_shp.x = width * 0.5 - this.progressbar_shp.displayWidth * 0.5;
-        this.progressbar_shp.y = height * 0.85;
-        this.progressbar_shp.setFillStyle(0x000000);
+        let preloadtex = this.textures.get(APPCONFIG.ID+"-"+APPCONFIG.PRELOAD.ID);
+        this.createanim((APPCONFIG.ID+"-"+APPCONFIG.PRELOAD.ID),"preload",preloadtex,APPCONFIG.PRELOAD.FRAME_RATE,-1)
+        this.preload_spr = this.add.sprite(0, 0, (APPCONFIG.ID+"-"+APPCONFIG.PRELOAD.ID));
+        this.scaleimage(this.preload_spr);
+        this.preload_spr.setOrigin(0.5)
+        this.preload_spr.x = this.game.config.width * 0.5;
+        this.preload_spr.y = this.game.config.height * 0.5;
+        this.preload_spr.play("preload");
+
+        this.progressbar_shp = this.add.graphics(0, 0);
+        this.progressbar_shp.fillStyle(0x000000, 1);
+        this.progressbar_shp.fillRoundedRect(0, 0, pw, ph, 10);
+        this.progressbar_shp.x = width * 0.5 - pw * 0.5;
+        this.progressbar_shp.y = height * 0.90;
         this.progressbar_shp.scaleX = 0.01;
-
-        this.loadinglbl_txt = this.add.text(
-            width * 0.5, 
-            height * 0.5, 
-            "Loading.. 0%", 
-            { 
-                fontFamily: 'Arial', 
-                fontSize: Math.floor(height * 0.05), 
-                fill: '#000000', 
-                align: 'left', 
-            }
-        );
-        this.loadinglbl_txt.setOrigin(0.5);
     },
 
     //PRE-LOAD LISTENER
@@ -162,17 +185,16 @@ KGames.Preloader.prototype = {
 
         this.load.on('progress', function (value) {
             thisclass.progress_val = Math.floor((value * 100) * 0.5) + thisclass.progresspercent_val;
-            //Global.Log("PRELOAD: PROGRESS - "+thisclass.progress_val);
-            thisclass.loadinglbl_txt.text = "Loading.. "+thisclass.progress_val+"%";
+            Global.Log("PRELOAD: PROGRESS - "+thisclass.progress_val);
             thisclass.progressbar_shp.scaleX = (thisclass.progress_val/100);
         });
                     
         this.load.on('fileprogress', function (file) {
-            //Global.Log("PRELOAD: FILE - "+(file.src));
+            Global.Log("PRELOAD: FILE - "+(file.src));
         });
 
         this.load.on('complete', function () {
-            //Global.Log('PRELOAD: COMPLETE');
+            Global.Log('PRELOAD: COMPLETE');
             thisclass.progresspercent_val = 50;
             if(thisclass.progress_val >= 100){
                 thisclass.load.off('progress');;
@@ -185,23 +207,25 @@ KGames.Preloader.prototype = {
 
     //MOVE TOO GAME SCENE
     movetoscene:function(){
-        this.loadinglbl_txt.text = "Loading.. 100%";
         this.scene.start('balloongame');
     },
 
     //Preload function
     preload: function(){
-        this.declarevariable();
-        this.createui();
-        this.preloadgamejs();
-        this.preloadlistener();
-        this.preloadcommon();
-        this.preloadgame();
+        if(Global.GameJson){
+            this.preloadgamejs();
+            this.preloadlistener();
+            this.preloadcommon();
+            this.preloadgame();
+        }else{
+            Global.Log('PRELOAD: FAILED, JSON IS EMPTY');
+        }
     },
 
     //init function
     init: function(){
-        
+        this.declarevariable();
+        this.createui();
     },
 
     //create function

@@ -717,6 +717,7 @@ KGames.BalloonGame.prototype = {
         this.topscore_lbl = this.add.bitmapText(0, 0, this.CONFIG.ID+"-"+this.CONFIG.TOP_SCORE_LBL.FONT.ID, "SCORE: 0", fontsize);
         this.topscore_lbl.setPosition(this.centerx_val, this.home_btn.y);
         this.topscore_lbl.setOrigin(0.5);
+        this.topscore_lbl.visible = this.CONFIG.TOP_SCORE_LBL.VISIBLE || false;
     },
 
     createsparkle: function(){
@@ -1110,8 +1111,8 @@ KGames.BalloonGame.prototype = {
 
     //init function
     init: function(){
-        this.CONFIG = gamejson.CONFIG;
-        this.DATA = gamejson.DATA;
+        this.CONFIG = Global.GameJson.CONFIG;
+        this.DATA = Global.GameJson.DATA;
         Global.Log(this.CONFIG.NAME+": "+this.CONFIG.VERSION);
     },
 

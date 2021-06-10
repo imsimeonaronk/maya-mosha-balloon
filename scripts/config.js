@@ -1,5 +1,12 @@
 const APPCONFIG = {
     ID: "CONFIG1",
+    //PRELOAD
+    PRELOAD: {
+        ID: "PRELOAD",
+        PATH: "assets/sprite/common/preload.png",
+        JSON: "assets/sprite/common/preload.json",
+        FRAME_RATE: 16, //ANIMATION SPEED
+    },
     //MENU BUTTONS
     MENU: {
         BTN: {
