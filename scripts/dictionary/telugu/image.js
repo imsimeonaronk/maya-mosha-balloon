@@ -1,0 +1,2 @@
+//GLOBAL Variable
+let IDict = {}

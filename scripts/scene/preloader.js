@@ -27,15 +27,6 @@ KGames.Preloader.prototype = {
         }
     },
 
-    // SCALE IMAGE
-    scaleimage: function(obj){
-        if (this.swidth_val / this.sheight_val > 1920 / 1080) {
-            obj.setScale((1 / obj.width) * this.game.config.width * 0.25);
-        } else {
-            obj.setScale((1 / obj.width) * this.game.config.width * 0.20);
-        }
-    },
-
     //COMMON CONFIG
     preloadcommon: function(){
         if(typeof(APPCONFIG) != "undefined"){
@@ -124,10 +115,10 @@ KGames.Preloader.prototype = {
             //LOAD LANGUAGE GAME AUDIO & IMAGE
             this.applang = (CONFIG.LANG || "").toLowerCase();
             if(this.applang != null && this.applang != ""){
-                this.load.script('TDictJS', "scripts/dictionary/letter_"+(this.applang)+".js");
-                this.load.script('TDataJS', 'scripts/data/letter_'+(this.applang)+'.js');
-                this.load.script('IDictJS', 'scripts/dictionary/image_'+(this.applang)+'.js');
-                this.load.script('IDataJS', 'scripts/data/image_'+(this.applang)+'.js');
+                this.load.script('TDictJS', "scripts/dictionary/"+(this.applang)+"/letter.js");
+                this.load.script('TDataJS', "scripts/data/"+(this.applang)+"/letter.js");
+                this.load.script('IDictJS', "scripts/dictionary/"+(this.applang)+"/image.js");
+                this.load.script('IDataJS', "scripts/data/"+(this.applang)+"/image.js");
             }
         }
     },
@@ -165,7 +156,7 @@ KGames.Preloader.prototype = {
         let preloadtex = this.textures.get(APPCONFIG.ID+"-"+APPCONFIG.PRELOAD.ID);
         this.createanim((APPCONFIG.ID+"-"+APPCONFIG.PRELOAD.ID),"preload",preloadtex,APPCONFIG.PRELOAD.FRAME_RATE,-1)
         this.preload_spr = this.add.sprite(0, 0, (APPCONFIG.ID+"-"+APPCONFIG.PRELOAD.ID));
-        this.scaleimage(this.preload_spr);
+        this.preload_spr.setScale((1 / this.preload_spr.width) * this.game.config.width * 0.20)
         this.preload_spr.setOrigin(0.5)
         this.preload_spr.x = this.game.config.width * 0.5;
         this.preload_spr.y = this.game.config.height * 0.5;

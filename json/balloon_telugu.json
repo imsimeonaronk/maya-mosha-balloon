@@ -1,0 +1,128 @@
+{
+    "CONFIG":{
+
+        "ID": "05",
+
+        "NAME": "BALLOON GAME",
+
+        "VERSION": "1.0",
+
+        "LANG": "TELUGU",
+
+        "BG": {
+            "ID": "01",
+            "PATH": "assets/images/BGBalloonGame.png"
+        },
+
+        "BALLONS": {
+            "ID": "BALLON",
+            "GRAVITY": [0, -1],
+            "BALLOON_INTERVAL": 1,
+            "GRAVITY_CHANGE": [0, -0.0001],
+            "LETTER_INTERVAL": 10,
+            "PATH": "assets/sprite/balloon/balloon.png",
+            "JSON": "assets/sprite/balloon/balloon.json",
+            "FONT": {
+                "ID": "NOTO-SANS",
+                "PATH": "assets/fonts/NotoSans.png",
+                "XML": "assets/fonts/NotoSans.xml",
+                "SIZE": 0.5
+            },
+            "LIST": [
+                "yellow.png",
+                "blue.png",
+                "dark_blue.png",
+                "green.png",
+                "light-blue.png",
+                "orange.png",
+                "pink.png",
+                "purple.png",
+                "red.png",
+                "violet.png"
+            ]
+        },
+
+        "TOP_SCORE_LBL":{
+            "VISIBLE": true,
+            "FONT": {
+                "ID": "HOBO-STD",
+                "PATH": "assets/fonts/HoboStd.png",
+                "XML": "assets/fonts/HoboStd.xml",
+                "SIZE": 0.5
+            }
+        },
+
+        "ANIMATION":{
+            "POSITIVE": {
+                "ID": "POSITIVE-ANIM",
+                "PATH": "assets/sprite/balloon/positive.png",
+                "JSON": "assets/sprite/balloon/positive.json",
+                "FRAME_RATE": 8
+            },
+            "NEGATIVE": {
+                "ID": "NEGATIVE-ANIM",
+                "PATH": "assets/sprite/balloon/negative.png",
+                "JSON": "assets/sprite/balloon/negative.json",
+                "FRAME_RATE": 8
+            }
+        },
+
+        "SOUNDS":{
+            "INTRO": { "ID": "INTRO", "PATH": "assets/sounds/balloon/BalloonGameVO.m4a", "FORCE_PLAY": true, "END_DELAY": 1, "VOLUME": 0.8 },
+            "CHALLENGE_INTRO": { "ID": "CHALLENGE INTRO", "PATH": "assets/sounds/balloon/BalloonGameVO.m4a", "FORCE_PLAY": true, "END_DELAY": 1, "VOLUME": 0.8 },
+            "BGMUSIC": { "ID": "BG-MUSIC", "PATH": "assets/sounds/balloon/BalloonGameMusic.m4a", "LOOP": true, "VOLUME": 0.4 },
+            "WRONG": { "ID": "WRONG", "PATH": "assets/sounds/common/NegativeSound.mp3" },
+            "RIGHT": { "ID": "RIGHT", "PATH": "assets/sounds/common/PositiveSound.mp3" },
+            "CORRECT1": { "ID": "VOExcellent", "PATH": "assets/sounds/common/VOExcellent.m4a" },
+            "CORRECT2": { "ID": "VOGoodJob", "PATH": "assets/sounds/common/VOGoodJob.m4a" },
+            "CORRECT3": { "ID": "VOWowYouAreAPro", "PATH": "assets/sounds/common/VOWowYouAreAPro.m4a" },
+            "INCORRECT1": { "ID": "QT_NotReally", "PATH": "assets/sounds/common/QT_NotReally.m4a" },
+            "TASK_COMPLETE": { "ID": "TASK-COMPLETE", "PATH": "assets/sounds/common/VOExcellent.m4a" }
+        },
+
+        "ENDVIEW":{
+            "DELAY": 1000
+        },
+
+        "SCORE":{
+            "FLAG": 0,
+            "POINTS": 10
+        },
+
+        "CHALLENGE":{
+            "FLAG": 0,
+            "ROUNDS": {
+                "ROUND1": 60,
+                "ROUND2": 60
+            }
+        },
+
+        "GTIMER":{
+            "FLAG": true,
+            "TIME": 60
+        },
+
+        "CELEBRATION":{
+            "VISIBLE": true
+        }
+
+    },
+
+    "DATA": {
+
+        "TASK1":{
+            "LINE": 1,
+            "TEXT_LIMIT": 4
+        },
+        "TASK2":{
+            "LINE": 2,
+            "TEXT_LIMIT": 4
+        },
+        "TASK3":{
+            "LINE": 3,
+            "TEXT_LIMIT": 4
+        }
+        
+    }
+
+}
