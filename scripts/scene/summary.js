@@ -516,7 +516,7 @@ KGames.Summary.prototype = {
                 this.negativeframe();
                 this.playwrongsnd();
             }else{
-                this.nextframe();
+                this.positiveframe();
                 this.createcelebration();
                 this.playcorrectsnd();
                 this.showcelebration(this.showceleb_bol);
