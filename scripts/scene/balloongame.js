@@ -897,7 +897,7 @@ KGames.BalloonGame.prototype = {
     loadsummary: function(){
         let taskscores = this.getscorepercent();
         if(this.CONFIG.SCORE.FLAG == 0){
-            if(this.game_data.task < this.game_data.tottask && taskscores[0] > 0){
+            if(this.game_data.task < this.game_data.tottask){
                 Global.Log("Loading next task");
                 this.stopallsnd({ stopbg: false, stopright: true, stopceleb: true, stopintro: true });
                 this.playtaskcompletesnd();
