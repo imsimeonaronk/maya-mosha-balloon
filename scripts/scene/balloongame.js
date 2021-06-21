@@ -214,7 +214,8 @@ KGames.BalloonGame.prototype = {
 
     clearobject: function(obj){
         if(obj){
-            obj.body.enable = false;
+            obj.visible = false;
+            obj.body.setEnable(false);
             if(obj.snd && obj.sndkey){
                 this.sound.removeByKey(obj.sndkey);
             }
@@ -795,6 +796,8 @@ KGames.BalloonGame.prototype = {
                 Global.Shuffle(this.balloon_data);
                 this.ballooncnt_val = 0;
             }
+            //BALLOON LOG
+            Global.Log("Balloon Created!")
         }
     },
 
@@ -821,13 +824,13 @@ KGames.BalloonGame.prototype = {
                 thisclass.clearobject(this);
                 let balmat = this.getWorldTransformMatrix();
                 if(this.index == thisclass.curletterindex_val){
-                    thisclass.scoreearned_val += 10;
+                    thisclass.scoreearned_val += thisclass.point_score;
                     thisclass.balloonblast_val++;
                     thisclass.playrightsnd();
                     thisclass.playcorrectsnd();
                     thisclass.showgamesplash('positive', true, {x: balmat.getX(0,0), y: balmat.getY(0,0)});
                 }else{
-                    thisclass.scoreearned_val -= 10;
+                    thisclass.scoreearned_val -= thisclass.point_score;
                     thisclass.playwrongsnd();
                     thisclass.playincorrectsnd();
                     thisclass.showgamesplash('negative', true, {x: balmat.getX(0,0), y: balmat.getY(0,0)});
@@ -839,8 +842,7 @@ KGames.BalloonGame.prototype = {
 
     disableinteractive: function(){
         if(this.balloon_ctr && this.balloon_ctr.length > 0){
-            for(let i=0; i<this.balloon_ctr.length; i++){
-                this.balloon_ctr.getAt(i).removeInteractive();
+            for(let i=this.balloon_ctr.length; i >= 0; i--){
                 this.clearobject(this.balloon_ctr.getAt(i));
             }
         }
@@ -868,34 +870,14 @@ KGames.BalloonGame.prototype = {
 
     //Score calculation
     calculatescore: function(){
-        this.task_score += (this.point_score * this.scoreratio_val);
+        //this.task_score += (this.point_score * this.scoreratio_val);
+        this.task_score += this.scoreearned_val;
         this.main_score += this.task_score;
     },
 
     getscorepercent: function(){
         let maxscore = this.balloonblast_val * this.point_score;
-        let score = this.task_score;
-        if(this.game_data.tottask > 1){
-            score = this.main_score;
-        }
-        Global.Log("TaskScore: "+this.task_score+" MainScore: "+this.main_score+" PointScore:"+this.point_score);
-        if(this.challengemode_bol){
-            maxscore = 1.6 * maxscore;
-            let timep = GTimer.GetTimePercent();
-            if(timep < 50){
-                score = 2 * score;
-            }else if(timep >=50 && timep < 75){
-                score = 1.5 * score;
-            }else if(timep >= 75){
-                score = 1 * score;
-            }
-        }
-        else{
-            if(this.CONFIG.SCORE.FLAG == 0){
-                score = this.point_score;
-                maxscore = this.point_score;
-            }
-        }
+        let score = this.scoreearned_val;
         let percent = Math.floor((score/maxscore)*100);
         Global.Log("Score: "+score+" Percentage: "+percent+" Maxscore: "+maxscore);
         return [ score, percent ];
@@ -963,6 +945,8 @@ KGames.BalloonGame.prototype = {
         this.task_score = 0;
         this.scoreratio_val = 1;
         this.timer_ctr.show(false);
+        this.scoreearned_val = 0;
+        this.balloonblast_val = 0;
     },
 
     resetvariable: function(){
@@ -971,13 +955,11 @@ KGames.BalloonGame.prototype = {
         this.gametimerend_bol = false;
         this.gametimermode_bol = false;
         this.gamereplay_bol = false;
-        this.balloonblast_val = 0;
         this.active_btn = null;
         this.ballooncnt_val = 0;
         this.curletterkey_val = null;
         this.curlettercnt_val = 0;
         this.curletterindex_val = null;
-        this.scoreearned_val = 0;
     },
 
     loadnexttask: function(){
@@ -1021,6 +1003,7 @@ KGames.BalloonGame.prototype = {
         this.clearstage();
         this.resettask();
         this.resetvariable();
+        this.updatescorevalue();
         this.initballoon();
         this.playbgsnd();
         this.playintrosnd();
@@ -1050,7 +1033,8 @@ KGames.BalloonGame.prototype = {
         this.gameend_bol = true;
         this.gametimerend_bol = true;
         this.disableinteractive();
-        this.loadsummary();
+        this.calculatescore();
+        this.delaysummary();
     },
 
     startchallenge: function(params){

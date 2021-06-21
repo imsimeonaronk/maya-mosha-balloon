@@ -68,7 +68,7 @@ const APPCONFIG = {
     //SUMMARY WINDOW
     SUMMARY: {
         ID:"SUMMARY",
-        DELAY: 2000, //Delay on showing summary window
+        DELAY: 500, //Delay on showing summary window
         NEGATIVE_HIDE_TIME: 5000,
         POSITIVE_HIDE_TIME: 8000,
         BG_ALPHA: 0.8,
