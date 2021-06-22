@@ -1,5 +1,8 @@
 KGames.Summary = function(){};
 
+//APP CODE
+const GameSummaryActions = { GOBACK(){}, GOAHED(){}, UPDATEPOINTS(score){} };
+
 //Prototype
 KGames.Summary.prototype = {
 
@@ -454,6 +457,7 @@ KGames.Summary.prototype = {
                         callback: () =>{
                             thisclass.challenge_bol = true;
                             thisclass.closethisscene();
+                            GameSummaryActions.GOAHED();
                         },
                         loop: false
                     });
@@ -485,6 +489,7 @@ KGames.Summary.prototype = {
                         delay: Math.floor(thisclass.btnanimtime_val * 1.25),
                         callback: () =>{
                             thisclass.closethisscene();
+                            GameSummaryActions.GOBACK();
                         },
                         loop: false
                     });
@@ -520,6 +525,7 @@ KGames.Summary.prototype = {
                 this.createcelebration();
                 this.playcorrectsnd();
                 this.showcelebration(this.showceleb_bol);
+                GameSummaryActions.UPDATEPOINTS(this.score_val);
             }
         }
     },
