@@ -1,6 +1,14 @@
 // GLOBAL
 const KGames = {}
 
+//CHECK GAME PATH
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const gamename = urlParams.get('game');
+if(gamename == null){
+    gamename = "number_telugu";
+}
+
 // WINDOW LOAD
 window.onload = function(){
     
@@ -36,7 +44,7 @@ window.onload = function(){
     game.scene.add('summary', KGames.Summary);
 
     //GAME URL
-    Global.GameUrl = "/json/number_telugu.json";
+    Global.GameUrl = "/json/"+(gamename)+".json";
     
     //INIT BOOT SCENE
     game.scene.start('boot');
