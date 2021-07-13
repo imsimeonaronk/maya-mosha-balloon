@@ -9,6 +9,7 @@ KGames.Preloader.prototype = {
         this.preloadtotal = 2;
         this.progress_val = 0;
         this.progresspercent_val = 0;
+        this.loadissue = false;
     },
 
     //CREATE ANIM FUN
@@ -94,11 +95,11 @@ KGames.Preloader.prototype = {
                 this.load.audio(CONFIG.ID+"-"+CONFIG.SOUNDS[key].ID, CONFIG.SOUNDS[key].PATH);
             }
             //BOX FONT
-            if(CONFIG.BALLONS){
-                if(CONFIG.BALLONS.FONT){
-                    this.load.bitmapFont(CONFIG.ID+"-"+CONFIG.BALLONS.FONT.ID, CONFIG.BALLONS.FONT.PATH, CONFIG.BALLONS.FONT.XML);
+            if(CONFIG.BALLOONS){
+                if(CONFIG.BALLOONS.FONT){
+                    this.load.bitmapFont(CONFIG.ID+"-"+CONFIG.BALLOONS.FONT.ID, CONFIG.BALLOONS.FONT.PATH, CONFIG.BALLOONS.FONT.XML);
                 }
-                this.load.atlas((CONFIG.ID+"-"+CONFIG.BALLONS.ID), CONFIG.BALLONS.PATH, CONFIG.BALLONS.JSON);
+                this.load.atlas((CONFIG.ID+"-"+CONFIG.BALLOONS.ID), CONFIG.BALLOONS.PATH, CONFIG.BALLOONS.JSON);
             }
             //SCORE LABEL
             if(CONFIG.TOP_SCORE_LBL){
@@ -184,10 +185,15 @@ KGames.Preloader.prototype = {
             Global.Log("PRELOAD: FILE - "+(file.src));
         });
 
+        this.load.on('loaderror', function (file) {
+            this.loadissue = true;
+            Global.Log("PRELOAD: FILE FAILED - "+(file.src));
+        });
+        
         this.load.on('complete', function () {
             Global.Log('PRELOAD: COMPLETE');
             thisclass.progresspercent_val = 50;
-            if(thisclass.progress_val >= 100){
+            if(thisclass.progress_val >= 100 && !this.loadissue){
                 thisclass.load.off('progress');;
                 thisclass.load.off('fileprogress');
                 thisclass.load.off('complete');

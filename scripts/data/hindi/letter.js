@@ -4,6 +4,15 @@ let TData = {}
 TData["line1"] = ["अ", "आ", "इ", "ई"]
 TData["line2"] = ["उ", "ऊ", "ए", "ऐ"]
 TData["line3"] = ["ओ", "औ", "अँ", "अः"]
+
+TData["line4"] = ["TNblack", "TNgreen", "TNred", "TNyellow"]
+TData["line5"] = ["TNwhite", "TNyellow", "TNpink", "TNblue"]
+TData["line6"] = ["TNblack", "TNblue", "TNgreen", "TNred"]
+
+TData["line7"] = ["1", "2", "3", "4"]
+TData["line8"] = ["5", "6", "7", "8"]
+TData["line9"] = ["9", "10", "1", "2"]
+
 /*
 TData["line1"] = ["अ", "आ", "इ", "ई", "उ", "ऊ"]
 TData["line2"] = ["ए", "ऐ", "ओ", "औ", "अँ", "अः"]

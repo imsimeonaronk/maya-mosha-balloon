@@ -1,9 +1,9 @@
 {
     "CONFIG":{
 
-        "ID": "05",
+        "ID": "06",
 
-        "NAME": "BALLOON GAME",
+        "NAME": "NUMBER GAME",
 
         "VERSION": "1.0",
 
@@ -11,36 +11,30 @@
 
         "BG": {
             "ID": "01",
-            "PATH": "assets/images/BGBalloonGame.png"
+            "PATH": "assets/images/BGNumberGame.png"
         },
 
         "BALLOONS": {
-            "ID": "BALLOON",
-            "GRAVITY": [0, -1],
+            "ID": "ALIEN",
+            "GRAVITY": [1, 0],
             "BALLOON_INTERVAL": 1,
-            "GRAVITY_CHANGE": [0, -0.0001],
+            "GRAVITY_CHANGE": [0.0001, 0],
             "LETTER_INTERVAL": 10,
-            "PATH": "assets/sprite/balloon/balloon.png",
-            "JSON": "assets/sprite/balloon/balloon.json",
+            "PATH": "assets/sprite/alien/aliens.png",
+            "JSON": "assets/sprite/alien/aliens.json",
+            "SHOW_TEXT": true,
             "SIZE": 0.13,
             "RANDOM_BALLOON": true,
             "FONT": {
                 "ID": "KRUTI-010",
                 "PATH": "assets/fonts/Kruti010.png",
                 "XML": "assets/fonts/Kruti010.xml",
-                "SIZE": 0.5
+                "SIZE": 0.4,
+                "POS": { "X":0 ,"Y": -0.55}
             },
             "LIST": [
-                "yellow.png",
-                "blue.png",
-                "dark_blue.png",
-                "green.png",
-                "light-blue.png",
-                "orange.png",
-                "pink.png",
-                "purple.png",
-                "red.png",
-                "violet.png"
+                "Alien1.png",
+                "Alien2.png"
             ]
         },
 
@@ -57,24 +51,25 @@
         "ANIMATION":{
             "POSITIVE": {
                 "ID": "POSITIVE-ANIM",
-                "PATH": "assets/sprite/balloon/positive.png",
-                "JSON": "assets/sprite/balloon/positive.json",
-                "FRAME_RATE": 8,
-                "SIZE": 0.18
+                "PATH": "assets/sprite/alien/aliencrash.png",
+                "JSON": "assets/sprite/alien/aliencrash.json",
+                "FRAME_RATE": 120,
+                "SIZE": 0.1
             },
             "NEGATIVE": {
                 "ID": "NEGATIVE-ANIM",
-                "PATH": "assets/sprite/balloon/negative.png",
-                "JSON": "assets/sprite/balloon/negative.json",
-                "FRAME_RATE": 8,
-                "SIZE": 0.18
+                "PATH": "assets/sprite/alien/aliencrash.png",
+                "JSON": "assets/sprite/alien/aliencrash.json",
+                "FRAME_RATE": 120,
+                "SIZE": 0.1
             }
         },
 
         "SOUNDS":{
-            "INTRO": { "ID": "INTRO", "PATH": "assets/sounds/balloon/BalloonGameVO.m4a", "FORCE_PLAY": true, "END_DELAY": 1, "VOLUME": 0.8 },
-            "CHALLENGE_INTRO": { "ID": "CHALLENGE INTRO", "PATH": "assets/sounds/balloon/BalloonGameVO.m4a", "FORCE_PLAY": true, "END_DELAY": 1, "VOLUME": 0.8 },
-            "BGMUSIC": { "ID": "BG-MUSIC", "PATH": "assets/sounds/balloon/BalloonGameMusic.m4a", "LOOP": true, "VOLUME": 0.4 },
+            "INTRO": { "ID": "INTRO", "PATH": "assets/sounds/alien/vonughinintro.m4a", "FORCE_PLAY": true, "END_DELAY": 1, "VOLUME": 0.8 },
+            "CHALLENGE_INTRO": { "ID": "CHALLENGE INTRO", "PATH": "assets/sounds/alien/vonughinintro.m4a", "FORCE_PLAY": true, "END_DELAY": 1, "VOLUME": 0.8 },
+            "BGMUSIC": { "ID": "BG-MUSIC", "PATH": "assets/sounds/alien/AlienGameMusic.m4a", "LOOP": true, "VOLUME": 0.4 },
+            "BALLOON_BURST": { "ID": "BALLOON-BURST", "PATH": "assets/sounds/alien/aliencrash.mp3", "VOLUME": 0.4 },
             "WRONG": { "ID": "WRONG", "PATH": "assets/sounds/common/NegativeSound.mp3" },
             "RIGHT": { "ID": "RIGHT", "PATH": "assets/sounds/common/PositiveSound.mp3" },
             "CORRECT1": { "ID": "VOExcellent", "PATH": "assets/sounds/common/VOExcellent.m4a" },
@@ -117,15 +112,15 @@
     "DATA": {
 
         "TASK1":{
-            "LINE": 1,
+            "LINE": 7,
             "TEXT_LIMIT": 4
         },
         "TASK2":{
-            "LINE": 2,
+            "LINE": 8,
             "TEXT_LIMIT": 4
         },
         "TASK3":{
-            "LINE": 3,
+            "LINE": 9,
             "TEXT_LIMIT": 4
         }
         

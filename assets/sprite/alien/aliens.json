@@ -1,0 +1,62 @@
+{
+	"textures": [
+		{
+			"image": "aliens.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 738,
+				"h": 630
+			},
+			"scale": 0.5,
+			"frames": [
+				{
+					"filename": "Alien1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 394,
+						"h": 628
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 394,
+						"h": 628
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 394,
+						"h": 628
+					}
+				},
+				{
+					"filename": "Alien2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 340,
+						"h": 571
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 340,
+						"h": 571
+					},
+					"frame": {
+						"x": 397,
+						"y": 1,
+						"w": 340,
+						"h": 571
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:a2901e47bee7d1f630bbb05f2f56fba6:d7d83c9dd755ed0fcac626ebd41acca3:542a018f2a9ec5ce3b067001c284779a$"
+	}
+}

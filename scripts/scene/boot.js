@@ -6,6 +6,7 @@ KGames.Boot.prototype = {
     //DECLARE VARIABLE
     declarevariable: function(){
         this.progress_val = 0;
+        this.loadissue = false;
     },
 
     //PRELOAD FILES
@@ -55,9 +56,15 @@ KGames.Boot.prototype = {
             Global.Log("PRELOAD: FILE - "+(file.src));
         });
 
+        this.load.on('loaderror', function (file) {
+            this.loadissue = true;
+            alert('Please try again later.');
+            Global.Log("PRELOAD: FILE FAILED - "+(file.src));
+        });
+
         this.load.on('complete', function () {
             Global.Log('PRELOAD: COMPLETE');
-            if(thisclass.progress_val >= 100){
+            if(thisclass.progress_val >= 100 && !this.loadissue){
                 thisclass.load.off('progress');;
                 thisclass.load.off('fileprogress');
                 thisclass.load.off('complete');

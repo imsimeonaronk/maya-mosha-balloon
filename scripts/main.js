@@ -36,7 +36,7 @@ window.onload = function(){
     game.scene.add('summary', KGames.Summary);
 
     //GAME URL
-    Global.GameUrl = "/json/balloon_telugu.json";
+    Global.GameUrl = "/json/number_telugu.json";
     
     //INIT BOOT SCENE
     game.scene.start('boot');

@@ -14,14 +14,16 @@
             "PATH": "assets/images/BGBalloonGame.png"
         },
 
-        "BALLONS": {
-            "ID": "BALLON",
+        "BALLOONS": {
+            "ID": "BALLOON",
             "GRAVITY": [0, -1],
             "BALLOON_INTERVAL": 1,
             "GRAVITY_CHANGE": [0, -0.0001],
             "LETTER_INTERVAL": 10,
             "PATH": "assets/sprite/balloon/balloon.png",
             "JSON": "assets/sprite/balloon/balloon.json",
+            "SIZE": 0.13,
+            "RANDOM_BALLOON": true,
             "FONT": {
                 "ID": "NOTO-SANS",
                 "PATH": "assets/fonts/NotoSans.png",
@@ -57,13 +59,15 @@
                 "ID": "POSITIVE-ANIM",
                 "PATH": "assets/sprite/balloon/positive.png",
                 "JSON": "assets/sprite/balloon/positive.json",
-                "FRAME_RATE": 8
+                "FRAME_RATE": 8,
+                "SIZE": 0.18
             },
             "NEGATIVE": {
                 "ID": "NEGATIVE-ANIM",
                 "PATH": "assets/sprite/balloon/negative.png",
                 "JSON": "assets/sprite/balloon/negative.json",
-                "FRAME_RATE": 8
+                "FRAME_RATE": 8,
+                "SIZE": 0.18
             }
         },
 
@@ -104,7 +108,9 @@
 
         "CELEBRATION":{
             "VISIBLE": true
-        }
+        },
+
+        "AUTO-CLOSE": true
 
     },
 

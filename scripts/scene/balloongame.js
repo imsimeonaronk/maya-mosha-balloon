@@ -20,6 +20,9 @@ KGames.BalloonGame.prototype = {
         this.showceleb_bol = true;
         this.gametimermode_bol = false;
         this.gametimerend_bol = false;
+        this.autoclose_bol = false;
+        this.balloontxtvis_bol = true;
+        this.balloonrand_bol = true;
 
         //Label
         this.fpsmeter_lbl = null;
@@ -63,6 +66,7 @@ KGames.BalloonGame.prototype = {
         this.cintro_snd = null;
         this.taskcomplete_snd = null;
         this.curletter_snd = null;
+        this.balloonbst_snd = null;
 
         //Animation
         this.sparkle_anim = null;
@@ -122,16 +126,26 @@ KGames.BalloonGame.prototype = {
             }
         }
 
-        if(this.CONFIG.BALLONS){
-            if(this.CONFIG.BALLONS.BALLOON_INTERVAL != null){
-                this.balotimegap_val = this.CONFIG.BALLONS.BALLOON_INTERVAL;
+        if(this.CONFIG.BALLOONS){
+            if(this.CONFIG.BALLOONS.BALLOON_INTERVAL != null){
+                this.balotimegap_val = this.CONFIG.BALLOONS.BALLOON_INTERVAL;
             }
-            if(this.CONFIG.BALLONS.LETTER_INTERVAL != null){
-                this.letrtimegap_val = this.CONFIG.BALLONS.LETTER_INTERVAL;
+            if(this.CONFIG.BALLOONS.LETTER_INTERVAL != null){
+                this.letrtimegap_val = this.CONFIG.BALLOONS.LETTER_INTERVAL;
             }
-            if(this.CONFIG.BALLONS.GRAVITY_CHANGE != null){
-                this.gravitychange_val = this.CONFIG.BALLONS.GRAVITY_CHANGE;
+            if(this.CONFIG.BALLOONS.GRAVITY_CHANGE != null){
+                this.gravitychange_val = this.CONFIG.BALLOONS.GRAVITY_CHANGE;
             }
+            if(this.CONFIG.BALLOONS.SHOW_TEXT != null){
+                this.balloontxtvis_bol = this.CONFIG.BALLOONS.SHOW_TEXT;
+            }
+            if(this.CONFIG.BALLOONS.RANDOM_BALLOON != null){
+                this.balloonrand_bol = this.CONFIG.BALLOONS.RANDOM_BALLOON;
+            }
+        }
+
+        if(this.CONFIG['AUTO-CLOSE'] != null){
+            this.autoclose_bol = this.CONFIG['AUTO-CLOSE'];
         }
         
         //APP LANGUAGE
@@ -345,6 +359,10 @@ KGames.BalloonGame.prototype = {
                 }
             });
         }
+        //BALLON BURST SOUND
+        if(this.CONFIG.SOUNDS.BALLOON_BURST){ 
+            this.balloonbst_snd = this.sound.add(this.CONFIG.ID+"-"+this.CONFIG.SOUNDS.BALLOON_BURST.ID);
+        }
     },
 
     playcorrectsnd: function(){
@@ -477,6 +495,21 @@ KGames.BalloonGame.prototype = {
         }
     },
 
+    playburstsnd: function(){
+        if(this.balloonbst_snd){
+            if(this.CONFIG.SOUNDS.BALLOON_BURST != null && this.CONFIG.SOUNDS.BALLOON_BURST.VOLUME != null){
+                this.balloonbst_snd.volume = this.CONFIG.SOUNDS.BALLOON_BURST.VOLUME;
+            }
+            this.balloonbst_snd.play();
+        }
+    },
+
+    stopburstsnd: function(){
+        if(this.balloonbst_snd){
+            this.balloonbst_snd.stop();
+        }
+    },
+
     stopallsnd: function(params){
         if(params && params.stopbg){
             this.stopbgsnd();
@@ -491,6 +524,7 @@ KGames.BalloonGame.prototype = {
         if(params && params.stopintro){
             this.stopintrosnd();
         }
+        this.stopburstsnd();
         this.stopwrongsnd();
         this.stopcurlettersnd();
         this.stoptaskcompletesnd();
@@ -521,7 +555,7 @@ KGames.BalloonGame.prototype = {
     },
 
     generateballoonpos: function(wd,ht){
-        let pos = {X:0, y:0};
+        let pos = {x:0, y:0};
             let xg = this.physics.world.gravity.x;
             let yg = this.physics.world.gravity.y;
             let direction = "bottom";
@@ -747,7 +781,7 @@ KGames.BalloonGame.prototype = {
         let postex = this.textures.get(this.CONFIG.ID+"-"+this.CONFIG.ANIMATION.POSITIVE.ID);
         this.createanim((this.CONFIG.ID+"-"+this.CONFIG.ANIMATION.POSITIVE.ID),"positive",postex,this.CONFIG.ANIMATION.POSITIVE.FRAME_RATE,0);
         this.positive_anim = this.add.sprite(0, 0, (this.CONFIG.ID+"-"+this.CONFIG.ANIMATION.POSITIVE.ID));
-        this.positive_anim.setScale(this.swidth_val * 0.18 * (1/this.positive_anim.displayWidth));
+        this.positive_anim.setScale(this.swidth_val * (this.CONFIG.ANIMATION.POSITIVE.SIZE || 0.18) * (1/this.positive_anim.displayWidth));
         this.positive_anim.visible = false;
         this.positive_anim.on('animationcomplete',function(){
             this.visible = false;
@@ -756,27 +790,55 @@ KGames.BalloonGame.prototype = {
         let negtex = this.textures.get(this.CONFIG.ID+"-"+this.CONFIG.ANIMATION.NEGATIVE.ID);
         this.createanim((this.CONFIG.ID+"-"+this.CONFIG.ANIMATION.NEGATIVE.ID),"negative",negtex,this.CONFIG.ANIMATION.NEGATIVE.FRAME_RATE,0)
         this.negative_anim = this.add.sprite(0, 0, (this.CONFIG.ID+"-"+this.CONFIG.ANIMATION.NEGATIVE.ID));
-        this.negative_anim.setScale(this.swidth_val * 0.18 * (1/this.negative_anim.displayWidth));
+        this.negative_anim.setScale(this.swidth_val * (this.CONFIG.ANIMATION.POSITIVE.SIZE || 0.18) * (1/this.negative_anim.displayWidth));
         this.negative_anim.visible = false;
         this.negative_anim.on('animationcomplete',function(){
             this.visible = false;
         })
     },
 
+    getballoonimagename: function(bstr){
+        let balname = bstr;
+        if(!this.balloonrand_bol){
+            for(let i=0;i<this.balloonlist_arr.length;i++){
+                if(this.balloonlist_arr[i].match(bstr)){
+                    balname = this.balloonlist_arr[i];
+                }
+            }
+        }else{
+            balname = this.balloonlist_arr[0];
+        }
+        return balname;
+    },
+
+    getballblfontpos: function(bimgname){
+        let pos = this.CONFIG.BALLOONS.FONT.POS || {X:0, Y:0};
+        //HARD CODE VALUE FOR ALIEN-2
+        if(bimgname === "Alien2.png"){
+            pos = {X:-0.11, Y: -0.55}
+        }
+        return pos;
+    },
+
     createballoon: function(){
         if(this.balloonlist_arr != null && this.balloonlist_arr.length > 0){
-            Global.Shuffle(this.balloonlist_arr); // SHUFFLE BALLONS LIST
+            Global.Shuffle(this.balloonlist_arr); // SHUFFLE BALLOONS LIST
             let balloondetails = Global.GetLetterData(TDict,this.balloon_data[this.ballooncnt_val][1]);
-            let fontsize = this.CONFIG.BALLONS.FONT.SIZE || 60;
+            let fontsize = this.CONFIG.BALLOONS.FONT.SIZE || 60;
             let balloon = this.add.container();
                 //IMAGE
-                let balsprite = this.add.sprite(0, 0, (this.CONFIG.ID+"-"+this.CONFIG.BALLONS.ID), this.balloonlist_arr[0]);
+                let balloonimgname = this.getballoonimagename(this.balloon_data[this.ballooncnt_val][1]);
+                let balsprite = this.add.sprite(0, 0, (this.CONFIG.ID+"-"+this.CONFIG.BALLOONS.ID), balloonimgname);
+                balsprite.setScale(this.swidth_val * (this.CONFIG.BALLOONS.SIZE || 0.18) * (1/balsprite.displayWidth))
                 balloon.add(balsprite);
                 //LABEL
+                let fontpos = this.getballblfontpos(balloonimgname);
                 fontsize = Math.floor(balsprite.displayHeight * fontsize);
-                let ballbl = this.add.bitmapText(0, 0, (this.CONFIG.ID+"-"+this.CONFIG.BALLONS.FONT.ID), balloondetails["LETTER"], fontsize);
+                let ballbl = this.add.bitmapText(0, 0, (this.CONFIG.ID+"-"+this.CONFIG.BALLOONS.FONT.ID), balloondetails["LETTER"], fontsize);
                 ballbl.setOrigin(0.5);
+                ballbl.setPosition(balsprite.y + balsprite.displayWidth * fontpos.X, balsprite.y + balsprite.displayWidth * fontpos.Y);
                 balloon.add(ballbl);
+                ballbl.visible = this.balloontxtvis_bol;
             this.physics.add.existing(balloon);
             let balpos = this.generateballoonpos(balsprite.displayWidth, balsprite.displayHeight);
             balloon.setPosition(balpos.x, balpos.y);
@@ -818,15 +880,15 @@ KGames.BalloonGame.prototype = {
         this.balloon_ctr = this.add.container();
         this.game_data.tottask = Global.GetLength( this.DATA );
         let taskdata = this.DATA[ "TASK"+ this.game_data.task ];
-        //GENERATE BALLON DATA
+        //GENERATE BALLOON DATA
         this.balloon_data = this.generateballoondata(taskdata);
         Global.Shuffle(this.balloon_data);
         this.ballooncpy_data = Global.CloneArray(this.balloon_data);
-        //BALLON LIST
-        this.balloonlist_arr = this.CONFIG.BALLONS.LIST;
+        //BALLOON LIST
+        this.balloonlist_arr = this.CONFIG.BALLOONS.LIST;
         //ADJUST GRAVITY
-        this.physics.world.gravity.x = (this.CONFIG.BALLONS.GRAVITY[0] || 0) * 100;
-        this.physics.world.gravity.y = (this.CONFIG.BALLONS.GRAVITY[1] || 0) * 100;
+        this.physics.world.gravity.x = (this.CONFIG.BALLOONS.GRAVITY[0] || 0) * 100;
+        this.physics.world.gravity.y = (this.CONFIG.BALLOONS.GRAVITY[1] || 0) * 100;
     },
 
     enableinteractive: function(object){
@@ -834,6 +896,7 @@ KGames.BalloonGame.prototype = {
         object.on('pointerdown',function(pointer, dragX, dragY, event){
             if(thisclass.gamestart_bol){
                 thisclass.stopallsnd({stopceleb: true});
+                thisclass.playburstsnd();
                 thisclass.clearobject(this);
                 let balmat = this.getWorldTransformMatrix();
                 if(this.index == thisclass.curletterindex_val){
@@ -922,7 +985,8 @@ KGames.BalloonGame.prototype = {
                     percent: taskscores[1],
                     flag: this.challengeflag_val,
                     cflag: this.challengelast_bol,
-                    showcelebration: this.showceleb_bol
+                    showcelebration: this.showceleb_bol,
+                    autoclose: this.autoclose_bol
                 });
             }
         }else if(this.CONFIG.SCORE.FLAG == 1){
@@ -937,7 +1001,8 @@ KGames.BalloonGame.prototype = {
                 percent: taskscores[1],
                 flag: this.challengeflag_val,
                 cflag: this.challengelast_bol,
-                showcelebration: this.showceleb_bol
+                showcelebration: this.showceleb_bol,
+                autoclose: this.autoclose_bol
             });
         }
     },

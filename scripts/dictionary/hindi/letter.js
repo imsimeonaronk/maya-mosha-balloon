@@ -1,6 +1,29 @@
 //GLOBAL Variable
 let TDict = {}
 
+//Colour
+TDict[ "TNyellow" ] = { "ID": "50", "LETTER": "yellow", "AUDIO": "assets/sounds/colour/hindi/vocoghinyellow.m4a"}
+TDict[ "TNblack" ] = { "ID": "51", "LETTER": "black", "AUDIO": "assets/sounds/colour/hindi/vocoghinblack.m4a"}
+TDict[ "TNblue" ] = { "ID": "52", "LETTER": "blue", "AUDIO": "assets/sounds/colour/hindi/vocoghinblue.m4a"}
+TDict[ "TNgreen" ] = { "ID": "53", "LETTER": "green", "AUDIO": "assets/sounds/colour/hindi/vocoghingreen.m4a"}
+TDict[ "TNpink" ] = { "ID": "54", "LETTER": "pink", "AUDIO": "assets/sounds/colour/hindi/vocoghinpink.m4a"}
+TDict[ "TNpurple" ] = { "ID": "55", "LETTER": "purple", "AUDIO": "assets/sounds/colour/hindi/vocoghinpurple.m4a"}
+TDict[ "TNred" ] = { "ID": "56", "LETTER": "red", "AUDIO": "assets/sounds/colour/hindi/vocoghinred.m4a"}
+TDict[ "TNwhite" ] = { "ID": "57", "LETTER": "white", "AUDIO": "assets/sounds/colour/hindi/vocoghinwhite.m4a"}
+
+//Number
+TDict[ "1" ] = { "ID": "58", "LETTER": "1", "AUDIO": "assets/sounds/alien/hindi/vonughin1.m4a"}
+TDict[ "2" ] = { "ID": "59", "LETTER": "2", "AUDIO": "assets/sounds/alien/hindi/vonughin2.m4a"}
+TDict[ "3" ] = { "ID": "60", "LETTER": "3", "AUDIO": "assets/sounds/alien/hindi/vonughin3.m4a"}
+TDict[ "4" ] = { "ID": "61", "LETTER": "4", "AUDIO": "assets/sounds/alien/hindi/vonughin4.m4a"}
+TDict[ "5" ] = { "ID": "62", "LETTER": "5", "AUDIO": "assets/sounds/alien/hindi/vonughin5.m4a"}
+TDict[ "6" ] = { "ID": "63", "LETTER": "6", "AUDIO": "assets/sounds/alien/hindi/vonughin6.m4a"}
+TDict[ "7" ] = { "ID": "64", "LETTER": "7", "AUDIO": "assets/sounds/alien/hindi/vonughin7.m4a"}
+TDict[ "8" ] = { "ID": "65", "LETTER": "8", "AUDIO": "assets/sounds/alien/hindi/vonughin8.m4a"}
+TDict[ "9" ] = { "ID": "66", "LETTER": "9", "AUDIO": "assets/sounds/alien/hindi/vonughin9.m4a"}
+TDict[ "10" ] = { "ID": "67", "LETTER": "10", "AUDIO": "assets/sounds/alien/hindi/vonughin10.m4a"}
+
+//Letter
 TDict[ "अ" ] = { "ID": "1", "LETTER": "v", "AUDIO": "assets/sounds/letter/hindi/1A.m4a" }
 TDict[ "आ" ] = { "ID": "2", "LETTER": "vk", "AUDIO": "assets/sounds/letter/hindi/2Aa.m4a" }
 TDict[ "इ" ] = { "ID": "3", "LETTER": "b", "AUDIO": "assets/sounds/letter/hindi/3E.m4a" }

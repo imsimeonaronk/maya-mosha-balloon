@@ -1,0 +1,167 @@
+{
+	"textures": [
+		{
+			"image": "waterballoon.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 894,
+				"h": 1688
+			},
+			"scale": 0.83333,
+			"frames": [
+				{
+					"filename": "TNblack.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 445,
+						"h": 420
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 445,
+						"h": 420
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 445,
+						"h": 420
+					}
+				},
+				{
+					"filename": "TNblue.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 445,
+						"h": 420
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 445,
+						"h": 420
+					},
+					"frame": {
+						"x": 448,
+						"y": 1,
+						"w": 445,
+						"h": 420
+					}
+				},
+				{
+					"filename": "TNgreen.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 445,
+						"h": 420
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 445,
+						"h": 420
+					},
+					"frame": {
+						"x": 1,
+						"y": 423,
+						"w": 445,
+						"h": 420
+					}
+				},
+				{
+					"filename": "TNpink.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 445,
+						"h": 420
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 445,
+						"h": 420
+					},
+					"frame": {
+						"x": 448,
+						"y": 423,
+						"w": 445,
+						"h": 420
+					}
+				},
+				{
+					"filename": "TNred.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 445,
+						"h": 420
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 445,
+						"h": 420
+					},
+					"frame": {
+						"x": 1,
+						"y": 845,
+						"w": 445,
+						"h": 420
+					}
+				},
+				{
+					"filename": "TNwhite.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 445,
+						"h": 420
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 445,
+						"h": 420
+					},
+					"frame": {
+						"x": 448,
+						"y": 845,
+						"w": 445,
+						"h": 420
+					}
+				},
+				{
+					"filename": "TNyellow.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 445,
+						"h": 420
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 445,
+						"h": 420
+					},
+					"frame": {
+						"x": 1,
+						"y": 1267,
+						"w": 445,
+						"h": 420
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:e5ccbb08d81af590b0ad0baef260f844:97f83a9ad0973e76a34c7e8f10a305ae:d81eebca99cc244da294d1808bdf1dc0$"
+	}
+}

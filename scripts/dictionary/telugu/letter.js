@@ -1,6 +1,29 @@
 //GLOBAL Variable
 let TDict = {}
 
+//Colour
+TDict[ "TNyellow" ] = { "ID": "52", "LETTER": "yellow", "AUDIO": "assets/sounds/colour/telugu/vocogtelyellow.m4a"}
+TDict[ "TNblack" ] = { "ID": "53", "LETTER": "black", "AUDIO": "assets/sounds/colour/telugu/vocogtelblack.m4a"}
+TDict[ "TNblue" ] = { "ID": "54", "LETTER": "blue", "AUDIO": "assets/sounds/colour/telugu/vocogtelblue.m4a"}
+TDict[ "TNgreen" ] = { "ID": "55", "LETTER": "green", "AUDIO": "assets/sounds/colour/telugu/vocogtelgreen.m4a"}
+TDict[ "TNred" ] = { "ID": "56", "LETTER": "red", "AUDIO": "assets/sounds/colour/telugu/vocogtelred.m4a"}
+TDict[ "TNwhite" ] = { "ID": "57", "LETTER": "white", "AUDIO": "assets/sounds/colour/telugu/vocogtelwhite.m4a"}
+//TDict[ "TNpink" ] = { "ID": 5, "LETTER": "pink", "AUDIO": "assets/sounds/colour/telugu/vocoghinpink.m4a"}
+//TDict[ "TNpurple" ] = { "ID": 6, "LETTER": "purple", "AUDIO": "assets/sounds/colour/telugu/vocoghinpurple.m4a"}
+
+//Number
+TDict[ "1" ] = { "ID": "58", "LETTER": "1", "AUDIO": "assets/sounds/alien/telugu/vonugtel1.m4a"}
+TDict[ "2" ] = { "ID": "59", "LETTER": "2", "AUDIO": "assets/sounds/alien/telugu/vonugtel2.m4a"}
+TDict[ "3" ] = { "ID": "60", "LETTER": "3", "AUDIO": "assets/sounds/alien/telugu/vonugtel3.m4a"}
+TDict[ "4" ] = { "ID": "61", "LETTER": "4", "AUDIO": "assets/sounds/alien/telugu/vonugtel4.m4a"}
+TDict[ "5" ] = { "ID": "62", "LETTER": "5", "AUDIO": "assets/sounds/alien/telugu/vonugtel5.m4a"}
+TDict[ "6" ] = { "ID": "63", "LETTER": "6", "AUDIO": "assets/sounds/alien/telugu/vonugtel6.m4a"}
+TDict[ "7" ] = { "ID": "64", "LETTER": "7", "AUDIO": "assets/sounds/alien/telugu/vonugtel7.m4a"}
+TDict[ "8" ] = { "ID": "65", "LETTER": "8", "AUDIO": "assets/sounds/alien/telugu/vonugtel8.m4a"}
+TDict[ "9" ] = { "ID": "66", "LETTER": "9", "AUDIO": "assets/sounds/alien/telugu/vonugtel9.m4a"}
+TDict[ "10" ] = { "ID": "67", "LETTER": "10", "AUDIO": "assets/sounds/alien/telugu/vonugtel10.m4a"}
+
+//Letter
 TDict[ "అ" ] =  {"ID": "1", "LETTER": "అ", "AUDIO": "assets/sounds/letter/telugu/1-Aa.m4a" }
 TDict[ "ఆ" ] =  {"ID": "2", "LETTER": "ఆ", "AUDIO": "assets/sounds/letter/telugu/2-Aaa.m4a" }
 TDict[ "ఇ" ] =  {"ID": "3", "LETTER": "ఇ", "AUDIO": "assets/sounds/letter/telugu/3-Ee.m4a" }
@@ -51,4 +74,4 @@ TDict[ "స" ] =  {"ID": "47", "LETTER": "స", "AUDIO": "assets/sounds/letter/t
 TDict[ "హ" ] =  {"ID": "48", "LETTER": "హ", "AUDIO": "assets/sounds/letter/telugu/48-Ha.m4a" }
 TDict[ "ళ" ] =  {"ID": "49", "LETTER": "ళ", "AUDIO": "assets/sounds/letter/telugu/49-Lla.m4a" }
 TDict[ "క" ] =  {"ID": "50", "LETTER": "క", "AUDIO": "assets/sounds/letter/telugu/50-Ksha.m4a" }
-TDict[ "ఱ" ] =  {"ID": "51", "LETTER": "ఱ", "AUDIO": "assets/sounds/letter/telugu/51-Rra.m4a" }
+TDict[ "ఱ" ] =  {"ID": "51", "LETTER": "ఱ", "AUDIO": "assets/sounds/letter/telugu/51-Rra.m4a" } 
