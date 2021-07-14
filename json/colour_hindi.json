@@ -74,7 +74,6 @@
             "CHALLENGE_INTRO": { "ID": "CHALLENGE INTRO", "PATH": "assets/sounds/colour/vocoghinintro.m4a", "FORCE_PLAY": true, "END_DELAY": 1, "VOLUME": 0.8 },
             "BGMUSIC": { "ID": "BG-MUSIC", "PATH": "assets/sounds/colour/ColourGameMusic.m4a", "LOOP": true, "VOLUME": 0.05 },
             "BALLOON_BURST": { "ID": "BALLOON-BURST", "PATH": "assets/sounds/colour/waterbaloonburst1.m4a", "VOLUME": 0.8 },
-            "WRONG": { "ID": "WRONG", "PATH": "assets/sounds/common/NegativeSound.mp3" },
             "RIGHT": { "ID": "RIGHT", "PATH": "assets/sounds/common/PositiveSound.mp3" },
             "CORRECT1": { "ID": "VOExcellent", "PATH": "assets/sounds/common/VOExcellent.m4a" },
             "CORRECT2": { "ID": "VOGoodJob", "PATH": "assets/sounds/common/VOGoodJob.m4a" },
