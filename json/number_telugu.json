@@ -69,7 +69,7 @@
             "INTRO": { "ID": "INTRO", "PATH": "assets/sounds/alien/vonugtelintro.m4a", "FORCE_PLAY": true, "END_DELAY": 1, "VOLUME": 0.8 },
             "CHALLENGE_INTRO": { "ID": "CHALLENGE INTRO", "PATH": "assets/sounds/alien/vonugtelintro.m4a", "FORCE_PLAY": true, "END_DELAY": 1, "VOLUME": 0.8 },
             "BGMUSIC": { "ID": "BG-MUSIC", "PATH": "assets/sounds/alien/AlienGameMusic.m4a", "LOOP": true, "VOLUME": 0.03 },
-            "BALLOON_BURST": { "ID": "BALLOON-BURST", "PATH": "assets/sounds/alien/aliencrash.m4a", "VOLUME": 0.2 },
+            "BALLOON_BURST": { "ID": "BALLOON-BURST", "PATH": "assets/sounds/alien/aliencrash.m4a", "VOLUME": 0.09 },
             "WRONG": { "ID": "WRONG", "PATH": "assets/sounds/common/NegativeSound.mp3" },
             "RIGHT": { "ID": "RIGHT", "PATH": "assets/sounds/common/PositiveSound.mp3" },
             "CORRECT1": { "ID": "VOExcellent", "PATH": "assets/sounds/common/VOExcellent.m4a" },
