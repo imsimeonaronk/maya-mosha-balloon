@@ -68,14 +68,13 @@
         "SOUNDS":{
             "INTRO": { "ID": "INTRO", "PATH": "assets/sounds/alien/vonugtelintro.m4a", "FORCE_PLAY": true, "END_DELAY": 1, "VOLUME": 0.8 },
             "CHALLENGE_INTRO": { "ID": "CHALLENGE INTRO", "PATH": "assets/sounds/alien/vonugtelintro.m4a", "FORCE_PLAY": true, "END_DELAY": 1, "VOLUME": 0.8 },
-            "BGMUSIC": { "ID": "BG-MUSIC", "PATH": "assets/sounds/alien/AlienGameMusic.m4a", "LOOP": true, "VOLUME": 0.4 },
-            "BALLOON_BURST": { "ID": "BALLOON-BURST", "PATH": "assets/sounds/alien/aliencrash.mp3", "VOLUME": 0.4 },
+            "BGMUSIC": { "ID": "BG-MUSIC", "PATH": "assets/sounds/alien/AlienGameMusic.m4a", "LOOP": true, "VOLUME": 0.03 },
+            "BALLOON_BURST": { "ID": "BALLOON-BURST", "PATH": "assets/sounds/alien/aliencrash.m4a", "VOLUME": 0.2 },
             "WRONG": { "ID": "WRONG", "PATH": "assets/sounds/common/NegativeSound.mp3" },
             "RIGHT": { "ID": "RIGHT", "PATH": "assets/sounds/common/PositiveSound.mp3" },
             "CORRECT1": { "ID": "VOExcellent", "PATH": "assets/sounds/common/VOExcellent.m4a" },
             "CORRECT2": { "ID": "VOGoodJob", "PATH": "assets/sounds/common/VOGoodJob.m4a" },
             "CORRECT3": { "ID": "VOWowYouAreAPro", "PATH": "assets/sounds/common/VOWowYouAreAPro.m4a" },
-            "INCORRECT1": { "ID": "QT_NotReally", "PATH": "assets/sounds/common/QT_NotReally.m4a" },
             "TASK_COMPLETE": { "ID": "TASK-COMPLETE", "PATH": "assets/sounds/common/VOExcellent.m4a" }
         },
 
